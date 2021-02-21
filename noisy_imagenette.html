@@ -10,13 +10,13 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="A noisy version of fastai’s Imagenette/Imagewoof datasets" />
 <meta property="og:description" content="A noisy version of fastai’s Imagenette/Imagewoof datasets" />
-<link rel="canonical" href="https://tmabraham.github.io/blog/deep%20learning/imagenette/2021/02/21/Noisy-Imagenette.html" />
-<meta property="og:url" content="https://tmabraham.github.io/blog/deep%20learning/imagenette/2021/02/21/Noisy-Imagenette.html" />
+<link rel="canonical" href="https://tmabraham.github.io/blog/noisy_imagenette" />
+<meta property="og:url" content="https://tmabraham.github.io/blog/noisy_imagenette" />
 <meta property="og:site_name" content="Tanishq Abraham’s blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-02-21T00:00:00-06:00" />
 <script type="application/ld+json">
-{"url":"https://tmabraham.github.io/blog/deep%20learning/imagenette/2021/02/21/Noisy-Imagenette.html","@type":"BlogPosting","headline":"Introducing Noisy Imagenette","dateModified":"2021-02-21T00:00:00-06:00","datePublished":"2021-02-21T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tmabraham.github.io/blog/deep%20learning/imagenette/2021/02/21/Noisy-Imagenette.html"},"description":"A noisy version of fastai’s Imagenette/Imagewoof datasets","@context":"https://schema.org"}</script>
+{"url":"https://tmabraham.github.io/blog/noisy_imagenette","@type":"BlogPosting","headline":"Introducing Noisy Imagenette","dateModified":"2021-02-21T00:00:00-06:00","datePublished":"2021-02-21T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tmabraham.github.io/blog/noisy_imagenette"},"description":"A noisy version of fastai’s Imagenette/Imagewoof datasets","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://tmabraham.github.io/blog/feed.xml" title="Tanishq Abraham's blog" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -298,12 +298,24 @@ window.onload = wrap_img;
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The generation of these noisy labels are provided in <a href="https://github.com/fastai/imagenette/blob/master/noisy_labels/generate_labels.ipynb">this Jupyter notebook</a>. We have also updated fastai's <a href="https://github.com/fastai/fastai/blob/master/nbs/examples/train_imagenette.py">train_imagenette.py</a> to utilize the new noisy labels. If you want to train on the Noisy Imagenette dataset using this script, just simply pass the <code>--pct-noise</code> argument to the script with the desired noise level. 
-<div class="flash">
+<p>The generation of these noisy labels are provided in <a href="https://github.com/fastai/imagenette/blob/master/noisy_labels/generate_labels.ipynb">this Jupyter notebook</a>. We have also updated fastai's <a href="https://github.com/fastai/fastai/blob/master/nbs/examples/train_imagenette.py">train_imagenette.py</a> to utilize the new noisy labels. If you want to train on the Noisy Imagenette dataset using this script, just simply pass the <code>--pct-noise</code> argument to the script with the desired noise level.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><div class="flash">
     <svg class="octicon octicon-info octicon octicon-info octicon octicon-info" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
     <strong>Note: </strong>The validation set remains clean and its labels are not changed. While technically the accuracy metric <a href="https://arxiv.org/abs/2012.04193">is robust</a> to noise, we believe it&#8217;s clearer to use a clean validation set to see if a model is learning appropriate decision boundaries on the right labels.
+</div></p>
+
 </div>
-For the original Imagenette dataset, there are technically (3 image sizes)*(4 number of epoch levels) for both Imagenette and Imagewoof giving a total of 24 leaderboards. If we had each of these 24 leaderboards for the previously mentioned 4 noise levels (1%, 5%, 25%, 50%), that would give us 96 leaderboards! Instead, the <a href="https://github.com/fastai/imagenette">Imagenette repository</a> only maintains leaderboards for Noisy Imagenette (and not Imagewoof) for 5% and 50% noise (24 leaderboards). Just like with the regular Imagenette leaderboards, feel free to send a pull request to the Imagenette repository with your results if it beats the current top score.  I have provided a <a href="https://github.com/tmabraham/noisy_imagenette/blob/main/baseline/baseline-01-18-2021.md">baseline</a> which is currently on the leaderboards, as well as a <a href="https://github.com/fastai/imagenette/blob/master/noisy_labels/extended_lb.csv">CSV file</a> with the baseline accuracy for all 96 leaderboards.</p>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For the original Imagenette dataset, there are technically (3 image sizes)*(4 number of epoch levels) for both Imagenette and Imagewoof giving a total of 24 leaderboards. If we had each of these 24 leaderboards for the previously mentioned 4 noise levels (1%, 5%, 25%, 50%), that would give us 96 leaderboards! Instead, the <a href="https://github.com/fastai/imagenette">Imagenette repository</a> only maintains leaderboards for Noisy Imagenette (and not Imagewoof) for 5% and 50% noise (24 leaderboards). Just like with the regular Imagenette leaderboards, feel free to send a pull request to the Imagenette repository with your results if it beats the current top score.  I have provided a <a href="https://github.com/tmabraham/noisy_imagenette/blob/main/baseline/baseline-01-18-2021.md">baseline</a> which is currently on the leaderboards, as well as a <a href="https://github.com/fastai/imagenette/blob/master/noisy_labels/extended_lb.csv">CSV file</a> with the baseline accuracy for all 96 leaderboards.</p>
 
 </div>
 </div>
@@ -341,7 +353,7 @@ For the original Imagenette dataset, there are technically (3 image sizes)*(4 nu
         theme="github-light"
         crossorigin="anonymous"
         async>
-</script><a class="u-url" href="/blog/deep%20learning/imagenette/2021/02/21/Noisy-Imagenette.html" hidden></a>
+</script><a class="u-url" href="/blog/noisy_imagenette" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
