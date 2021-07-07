@@ -24,9 +24,20 @@ Here is a demo of GitHub Copilot in action (specifically for an ML-related task)
 
 > twitter: https://twitter.com/iScienceLuvr/status/1411074516411764743
 
-It's clear that GitHub Copilot
+It's clear that GitHub Copilot understands the general PyTorch training workflow, and understands intricacies like what are the appropriate augmentations for images (resizing, random crop, normalization, etc.), making sure to put model into evaluation mode and with `torch.no_grad()` during validation, etc. These are things that sometimes we may forget to do, so it's great that GitHub Copilot can help prevent us from making these common mistakes.
 
-There is one unintended consequence of GitHub Copilot that I find interesting. GitHub Copilot actually makes a pretty good autocomplete tool for regular writing. I actually discovered this when I started writing this blog post in a Markdown file in the VS Code editor. Of course, this is likely GitHub Copilot learning from README files and other documentation in various repositories. But I would genuinely consider writing more in Markdown files in VS Code with GitHub Copilot turned on because some of the autocomplete suggestions are actually quite helpful. 
+GitHub Copilot performs best when you provide it with comments describing what you are trying to do. It then uses the comments to generate a list of possible completions. This is highlighted in the example above, where I wrote a few lines about what I wanted to do (fine-tuning a pretrained ResNet50 on a custom dataset) and how I wanted to do that, and it mostly completed the rest of the code for me. I think this is great, because it changes the way we code. It now drives code development to focus on documentation, since writing good documentation often results in better Copilot suggestions.
+
+On a related note, some have hypothesized that GitHub Copilot might also lead to more test-driven development:
+
+> twitter: https://twitter.com/chrisalbon/status/1410827508283367424
+
+
+I also want to point out that while most demos directly use GitHub Copilot in the editor, it's also possible to open GitHub Copilot in a separate tab and have it generate and present multiple suggestions for you. Here are a couple examples of this:
+
+I quite like this feature, because it provides various approaches for solving a particular task, and I can select which approach I want to use. For instance, in the above example, it shows various approaches for defining a ResNet50 model for fine-tuning. I typically prefer defining a class for the ResNet50, so I select that option. 
+
+There is another unintended consequence of GitHub Copilot that I find interesting. GitHub Copilot actually makes a pretty good autocomplete tool for regular writing. I actually discovered this when I started writing this blog post in a Markdown file in the VS Code editor. Of course, this is likely GitHub Copilot learning from README files and other documentation in various repositories. But I would genuinely consider writing more in Markdown files in VS Code with GitHub Copilot turned on because some of the autocomplete suggestions are actually quite helpful. 
 
 
 ## Challenges with GitHub Copilot
@@ -73,11 +84,12 @@ On their website, GitHub Copilot has the following information:
 
 So this confirms that indeed private information was available in the training set that allows GitHub Copilot to leak this information. I was unable to easily get email addresses because of the rudimentary filtering that GitHub Copilot performed.
 
-
-
 ### Multi-lingual capabilities of GitHub Copilot
 
-Another interesting aspect of the 
+As we mentioned before, GitHub Copilot performs best when you provide it with comments explaining your intent. Therefore, Mazen and I wanted to explore how well GitHub Copilot can perform with comments in various languages. Since I am not the most multi-lingual person, I mainly used Google Translate to translate my English comments to various languages and observe how well it performed. Let's go over a few examples.
+
+
+Of course, if you comment with English, GitHub Copilot provide the best suggestions. But as demonstrated in these experiments, the quality of GitHub Copilot suggestions when given comments in other languages likely is correlated with the overall frequency of these languages in the trainin data. It's likely that Chinese and Hindi are more common than Arabic and French in the training set, so GitHub Copilot performs better with comments in these languages.
 
 ### Copyright/licensing issues
 
@@ -109,7 +121,6 @@ While it is currently available for free to the beta-testers, the GitHub team ha
 
 
 ## Conclusion
-
 
 It's a mind-blowing tool and a very interesting and practical application of AI, but it's not yet ready for prime time.
 
