@@ -108,7 +108,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      6 min read
+      10 min read
     
 </span></p>
 
@@ -162,12 +162,24 @@ window.onload = wrap_img;
 <p>Here is a demo of GitHub Copilot in action (specifically for an ML-related task):</p>
 
 <blockquote>
-  <p>twitter:</p>
+  <p>twitter: https://twitter.com/iScienceLuvr/status/1411074516411764743</p>
 </blockquote>
 
-<p>It’s clear that GitHub Copilot</p>
+<p>It’s clear that GitHub Copilot understands the general PyTorch training workflow, and understands intricacies like what are the appropriate augmentations for images (resizing, random crop, normalization, etc.), making sure to put model into evaluation mode and with <code class="language-plaintext highlighter-rouge">torch.no_grad()</code> during validation, etc. These are things that sometimes we may forget to do, so it’s great that GitHub Copilot can help prevent us from making these common mistakes.</p>
 
-<p>There is one unintended consequence of GitHub Copilot that I find interesting. GitHub Copilot actually makes a pretty good autocomplete tool for regular writing. I actually discovered this when I started writing this blog post in a Markdown file in the VS Code editor. Of course, this is likely GitHub Copilot learning from README files and other documentation in various repositories. But I would genuinely consider writing more in Markdown files in VS Code with GitHub Copilot turned on because some of the autocomplete suggestions are actually quite helpful.</p>
+<p>GitHub Copilot performs best when you provide it with comments describing what you are trying to do. It then uses the comments to generate a list of possible completions. This is highlighted in the example above, where I wrote a few lines about what I wanted to do (fine-tuning a pretrained ResNet50 on a custom dataset) and how I wanted to do that, and it mostly completed the rest of the code for me. I think this is great, because it changes the way we code. It now drives code development to focus on documentation, since writing good documentation often results in better Copilot suggestions.</p>
+
+<p>On a related note, some have hypothesized that GitHub Copilot might also lead to more test-driven development:</p>
+
+<blockquote>
+  <p>twitter: https://twitter.com/chrisalbon/status/1410827508283367424</p>
+</blockquote>
+
+<p>I also want to point out that while most demos directly use GitHub Copilot in the editor, it’s also possible to open GitHub Copilot in a separate tab and have it generate and present multiple suggestions for you. Here are a couple examples of this:</p>
+
+<p>I quite like this feature, because it provides various approaches for solving a particular task, and I can select which approach I want to use. For instance, in the above example, it shows various approaches for defining a ResNet50 model for fine-tuning. I typically prefer defining a class for the ResNet50, so I select that option.</p>
+
+<p>There is another unintended consequence of GitHub Copilot that I find interesting. GitHub Copilot actually makes a pretty good autocomplete tool for regular writing. I actually discovered this when I started writing this blog post in a Markdown file in the VS Code editor. Of course, this is likely GitHub Copilot learning from README files and other documentation in various repositories. But I would genuinely consider writing more in Markdown files in VS Code with GitHub Copilot turned on because some of the autocomplete suggestions are actually quite helpful.</p>
 
 <h2 id="challenges-with-github-copilot">
 <a class="anchor" href="#challenges-with-github-copilot" aria-hidden="true"><span class="octicon octicon-link"></span></a>Challenges with GitHub Copilot</h2>
@@ -219,8 +231,16 @@ window.onload = wrap_img;
 <h3 id="multi-lingual-capabilities-of-github-copilot">
 <a class="anchor" href="#multi-lingual-capabilities-of-github-copilot" aria-hidden="true"><span class="octicon octicon-link"></span></a>Multi-lingual capabilities of GitHub Copilot</h3>
 
+<p>As we mentioned before, GitHub Copilot performs best when you provide it with comments explaining your intent. Therefore, Mazen and I wanted to explore how well GitHub Copilot can perform with comments in various languages. Since I am not the most multi-lingual person, I mainly used Google Translate to translate my English comments to various languages and observe how well it performed. Let’s go over a few examples.</p>
+
+<p>Of course, if you comment with English, GitHub Copilot provide the best suggestions. But as demonstrated in these experiments, the quality of GitHub Copilot suggestions when given comments in other languages likely is correlated with the overall frequency of these languages in the trainin data. It’s likely that Chinese and Hindi are more common than Arabic and French in the training set, so GitHub Copilot performs better with comments in these languages.</p>
+
 <h3 id="copyrightlicensing-issues">
 <a class="anchor" href="#copyrightlicensing-issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Copyright/licensing issues</h3>
+
+<p>Let’s move on to the elephant in the room: copyright/licensing issues. GitHub Copilot/Codex was trained on all public GitHub code, regardless of license (<a href="https://twitter.com/NoraDotCodes/status/1412741339771461635">confirmed</a> by GitHub). While <a href="https://juliareda.eu/2021/07/github-copilot-is-not-infringing-your-copyright/">some argue</a> that training on copyrighted code is not an issue, it becomes much more challenging to argue that when Copilot is <a href="https://twitter.com/mitsuhiko/status/1410886329924194309">regurgitating public code verbatim</a>. According to GitHub, Copilot repeats code snippets verbatim about 0.1% of the time. They have also provided a more in-depth study <a href="https://github.co/copilot-research-recitation">here</a>. Thankfully they are currently developing origin tracker that tells where the verbatim code is coming from and allows you to decide whether to include proper attribution or not use that code altogether.</p>
+
+<p>In my opinion, because of these copyright issues, GitHub Copilot in its current state is not usable for commericial purposes. I think that once the origin tracker is released, copyright issues will be resolved, although it puts the onus on the user to make sure that code is properly attributed. Of course, the easier solution would have been to avoid training on copyrighted and GPL-licensed code altogether, which would have likely prevented the significant controversy that arose, and I wonder what led to the decision to train on all public GitHub code instead of further curating the dataset.</p>
 
 <h3 id="usage-of-outdated-apis">
 <a class="anchor" href="#usage-of-outdated-apis" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage of outdated APIs</h3>
@@ -231,7 +251,9 @@ window.onload = wrap_img;
 
 <p>To me, this is a major concern regarding the current usability of GitHub Copilot. If we are using cutting edge tools like PyTorch XLA, JAX, fastai, timm, GitHub Copilot has no knowledge of this and cannot provide useful suggestions. Somehow, the GitHub team needs to keep Copilot updated on newer codebases. Given that <a href="https://docs.github.com/en/github/copilot/about-github-copilot-telemetry">telemetry of GitHub Copilot usage</a> is being sent to GitHub, it’s possible that the GitHub team can further train their model on the usage of these newer codebases. Indeed, it is mentioned in the documentation that the telemetry data is used for “improving the underlying code generation models, e.g. by providing positive and negative examples (but always so that your private code is not used as input to suggest code for other users of GitHub Copilot)”. Additionally, a GitHub Developer Advocate has <a href="https://youtu.be/St2CMvK4hK0?t=257">mentioned</a> that “the model is being trained everyday, so the more people use it, Copilot will learn that these suggestions need to be updated”.</p>
 
-<p>I wonder if the GitHub team might also develop a way of perhaps fine-tuning GitHub Copilot to specific use-cases. For example, there may be a specific GitHub Copilot models for fastai, JAX, etc. They would be fine-tuned on the source code of of these libraries and codebases that use these libraries. But making sure that the tool does not provide outdated suggestions would still be a challenge. I don’t think it would be possible to provide suggestions for a brand-new library that does not have enough codebases using it to train on. Additionally, for situations like fastai where there are older APIs and newer APIs, when fine-tuning a model, the codebases using the older APIs would have to be filtered out. All in all, I personally think that getting GitHub Copilot to provide suggestions for new codebases is a difficult but a potentially solvable challenge.</p>
+<p>I wonder if the GitHub team might also develop a way of perhaps fine-tuning GitHub Copilot to specific use-cases. For example, there may be a specific GitHub Copilot models for fastai, JAX, etc. They would be fine-tuned on the source code of of these libraries and codebases that use these libraries. But making sure that the tool does not provide outdated suggestions would still be a challenge. I don’t think it would be possible to provide suggestions for a brand-new library that does not have enough codebases using it to train on. Additionally, for situations like fastai where there are older APIs and newer APIs, when fine-tuning a model, the codebases using the older APIs would have to be filtered out.</p>
+
+<p>All in all, I personally think that for practical applications, it is necessary for GitHub Copilot to provide suggestions for new codebases, and doing so might be a difficult but potentially solvable challenge.</p>
 
 <h2 id="how-might-github-copilot-be-commercialized">
 <a class="anchor" href="#how-might-github-copilot-be-commercialized" aria-hidden="true"><span class="octicon octicon-link"></span></a>How might GitHub Copilot be commercialized?</h2>
@@ -248,6 +270,8 @@ window.onload = wrap_img;
 <a class="anchor" href="#conclusion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusion</h2>
 
 <p>It’s a mind-blowing tool and a very interesting and practical application of AI, but it’s not yet ready for prime time.</p>
+
+<p>What are some more immediate applications I see for GitHub Copilot?</p>
 
 <h1 id="acknowledgements">
 <a class="anchor" href="#acknowledgements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Acknowledgements</h1>

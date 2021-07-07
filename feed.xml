@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://tmabraham.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tmabraham.github.io/blog/" rel="alternate" type="text/html" /><updated>2021-07-07T14:44:38-05:00</updated><id>https://tmabraham.github.io/blog/feed.xml</id><title type="html">Tanishq Abraham’s blog</title><subtitle>My blog with tutorials and thoughts.</subtitle><entry><title type="html">Coding with GitHub Copilot</title><link href="https://tmabraham.github.io/blog/github_copilot" rel="alternate" type="text/html" title="Coding with GitHub Copilot" /><published>2021-07-08T00:00:00-05:00</published><updated>2021-07-08T00:00:00-05:00</updated><id>https://tmabraham.github.io/blog/GitHub-Copilot</id><content type="html" xml:base="https://tmabraham.github.io/blog/github_copilot">&lt;h1 id=&quot;coding-with-github-copilot&quot;&gt;Coding with GitHub Copilot&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://tmabraham.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tmabraham.github.io/blog/" rel="alternate" type="text/html" /><updated>2021-07-07T16:29:37-05:00</updated><id>https://tmabraham.github.io/blog/feed.xml</id><title type="html">Tanishq Abraham’s blog</title><subtitle>My blog with tutorials and thoughts.</subtitle><entry><title type="html">Coding with GitHub Copilot</title><link href="https://tmabraham.github.io/blog/github_copilot" rel="alternate" type="text/html" title="Coding with GitHub Copilot" /><published>2021-07-08T00:00:00-05:00</published><updated>2021-07-08T00:00:00-05:00</updated><id>https://tmabraham.github.io/blog/GitHub-Copilot</id><content type="html" xml:base="https://tmabraham.github.io/blog/github_copilot">&lt;h1 id=&quot;coding-with-github-copilot&quot;&gt;Coding with GitHub Copilot&lt;/h1&gt;
 
 &lt;p&gt;On July 1st, I was able to obtain access to GitHub Copilot, thanks to my friend &lt;a href=&quot;https://twitter.com/hamelhusain&quot;&gt;Hamel Husain&lt;/a&gt;. I wanted to share my experience and discoveries about this new tool. Much of the findings was demonstrated with the help of Mazen Alotaibi and Mark Saroufim.&lt;/p&gt;
 
@@ -12,12 +12,24 @@
 &lt;p&gt;Here is a demo of GitHub Copilot in action (specifically for an ML-related task):&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;twitter:&lt;/p&gt;
+  &lt;p&gt;twitter: https://twitter.com/iScienceLuvr/status/1411074516411764743&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;It’s clear that GitHub Copilot&lt;/p&gt;
+&lt;p&gt;It’s clear that GitHub Copilot understands the general PyTorch training workflow, and understands intricacies like what are the appropriate augmentations for images (resizing, random crop, normalization, etc.), making sure to put model into evaluation mode and with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;torch.no_grad()&lt;/code&gt; during validation, etc. These are things that sometimes we may forget to do, so it’s great that GitHub Copilot can help prevent us from making these common mistakes.&lt;/p&gt;
 
-&lt;p&gt;There is one unintended consequence of GitHub Copilot that I find interesting. GitHub Copilot actually makes a pretty good autocomplete tool for regular writing. I actually discovered this when I started writing this blog post in a Markdown file in the VS Code editor. Of course, this is likely GitHub Copilot learning from README files and other documentation in various repositories. But I would genuinely consider writing more in Markdown files in VS Code with GitHub Copilot turned on because some of the autocomplete suggestions are actually quite helpful.&lt;/p&gt;
+&lt;p&gt;GitHub Copilot performs best when you provide it with comments describing what you are trying to do. It then uses the comments to generate a list of possible completions. This is highlighted in the example above, where I wrote a few lines about what I wanted to do (fine-tuning a pretrained ResNet50 on a custom dataset) and how I wanted to do that, and it mostly completed the rest of the code for me. I think this is great, because it changes the way we code. It now drives code development to focus on documentation, since writing good documentation often results in better Copilot suggestions.&lt;/p&gt;
+
+&lt;p&gt;On a related note, some have hypothesized that GitHub Copilot might also lead to more test-driven development:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;twitter: https://twitter.com/chrisalbon/status/1410827508283367424&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I also want to point out that while most demos directly use GitHub Copilot in the editor, it’s also possible to open GitHub Copilot in a separate tab and have it generate and present multiple suggestions for you. Here are a couple examples of this:&lt;/p&gt;
+
+&lt;p&gt;I quite like this feature, because it provides various approaches for solving a particular task, and I can select which approach I want to use. For instance, in the above example, it shows various approaches for defining a ResNet50 model for fine-tuning. I typically prefer defining a class for the ResNet50, so I select that option.&lt;/p&gt;
+
+&lt;p&gt;There is another unintended consequence of GitHub Copilot that I find interesting. GitHub Copilot actually makes a pretty good autocomplete tool for regular writing. I actually discovered this when I started writing this blog post in a Markdown file in the VS Code editor. Of course, this is likely GitHub Copilot learning from README files and other documentation in various repositories. But I would genuinely consider writing more in Markdown files in VS Code with GitHub Copilot turned on because some of the autocomplete suggestions are actually quite helpful.&lt;/p&gt;
 
 &lt;h2 id=&quot;challenges-with-github-copilot&quot;&gt;Challenges with GitHub Copilot&lt;/h2&gt;
 
@@ -66,7 +78,15 @@
 
 &lt;h3 id=&quot;multi-lingual-capabilities-of-github-copilot&quot;&gt;Multi-lingual capabilities of GitHub Copilot&lt;/h3&gt;
 
+&lt;p&gt;As we mentioned before, GitHub Copilot performs best when you provide it with comments explaining your intent. Therefore, Mazen and I wanted to explore how well GitHub Copilot can perform with comments in various languages. Since I am not the most multi-lingual person, I mainly used Google Translate to translate my English comments to various languages and observe how well it performed. Let’s go over a few examples.&lt;/p&gt;
+
+&lt;p&gt;Of course, if you comment with English, GitHub Copilot provide the best suggestions. But as demonstrated in these experiments, the quality of GitHub Copilot suggestions when given comments in other languages likely is correlated with the overall frequency of these languages in the trainin data. It’s likely that Chinese and Hindi are more common than Arabic and French in the training set, so GitHub Copilot performs better with comments in these languages.&lt;/p&gt;
+
 &lt;h3 id=&quot;copyrightlicensing-issues&quot;&gt;Copyright/licensing issues&lt;/h3&gt;
+
+&lt;p&gt;Let’s move on to the elephant in the room: copyright/licensing issues. GitHub Copilot/Codex was trained on all public GitHub code, regardless of license (&lt;a href=&quot;https://twitter.com/NoraDotCodes/status/1412741339771461635&quot;&gt;confirmed&lt;/a&gt; by GitHub). While &lt;a href=&quot;https://juliareda.eu/2021/07/github-copilot-is-not-infringing-your-copyright/&quot;&gt;some argue&lt;/a&gt; that training on copyrighted code is not an issue, it becomes much more challenging to argue that when Copilot is &lt;a href=&quot;https://twitter.com/mitsuhiko/status/1410886329924194309&quot;&gt;regurgitating public code verbatim&lt;/a&gt;. According to GitHub, Copilot repeats code snippets verbatim about 0.1% of the time. They have also provided a more in-depth study &lt;a href=&quot;https://github.co/copilot-research-recitation&quot;&gt;here&lt;/a&gt;. Thankfully they are currently developing origin tracker that tells where the verbatim code is coming from and allows you to decide whether to include proper attribution or not use that code altogether.&lt;/p&gt;
+
+&lt;p&gt;In my opinion, because of these copyright issues, GitHub Copilot in its current state is not usable for commericial purposes. I think that once the origin tracker is released, copyright issues will be resolved, although it puts the onus on the user to make sure that code is properly attributed. Of course, the easier solution would have been to avoid training on copyrighted and GPL-licensed code altogether, which would have likely prevented the significant controversy that arose, and I wonder what led to the decision to train on all public GitHub code instead of further curating the dataset.&lt;/p&gt;
 
 &lt;h3 id=&quot;usage-of-outdated-apis&quot;&gt;Usage of outdated APIs&lt;/h3&gt;
 
@@ -76,7 +96,9 @@
 
 &lt;p&gt;To me, this is a major concern regarding the current usability of GitHub Copilot. If we are using cutting edge tools like PyTorch XLA, JAX, fastai, timm, GitHub Copilot has no knowledge of this and cannot provide useful suggestions. Somehow, the GitHub team needs to keep Copilot updated on newer codebases. Given that &lt;a href=&quot;https://docs.github.com/en/github/copilot/about-github-copilot-telemetry&quot;&gt;telemetry of GitHub Copilot usage&lt;/a&gt; is being sent to GitHub, it’s possible that the GitHub team can further train their model on the usage of these newer codebases. Indeed, it is mentioned in the documentation that the telemetry data is used for “improving the underlying code generation models, e.g. by providing positive and negative examples (but always so that your private code is not used as input to suggest code for other users of GitHub Copilot)”. Additionally, a GitHub Developer Advocate has &lt;a href=&quot;https://youtu.be/St2CMvK4hK0?t=257&quot;&gt;mentioned&lt;/a&gt; that “the model is being trained everyday, so the more people use it, Copilot will learn that these suggestions need to be updated”.&lt;/p&gt;
 
-&lt;p&gt;I wonder if the GitHub team might also develop a way of perhaps fine-tuning GitHub Copilot to specific use-cases. For example, there may be a specific GitHub Copilot models for fastai, JAX, etc. They would be fine-tuned on the source code of of these libraries and codebases that use these libraries. But making sure that the tool does not provide outdated suggestions would still be a challenge. I don’t think it would be possible to provide suggestions for a brand-new library that does not have enough codebases using it to train on. Additionally, for situations like fastai where there are older APIs and newer APIs, when fine-tuning a model, the codebases using the older APIs would have to be filtered out. All in all, I personally think that getting GitHub Copilot to provide suggestions for new codebases is a difficult but a potentially solvable challenge.&lt;/p&gt;
+&lt;p&gt;I wonder if the GitHub team might also develop a way of perhaps fine-tuning GitHub Copilot to specific use-cases. For example, there may be a specific GitHub Copilot models for fastai, JAX, etc. They would be fine-tuned on the source code of of these libraries and codebases that use these libraries. But making sure that the tool does not provide outdated suggestions would still be a challenge. I don’t think it would be possible to provide suggestions for a brand-new library that does not have enough codebases using it to train on. Additionally, for situations like fastai where there are older APIs and newer APIs, when fine-tuning a model, the codebases using the older APIs would have to be filtered out.&lt;/p&gt;
+
+&lt;p&gt;All in all, I personally think that for practical applications, it is necessary for GitHub Copilot to provide suggestions for new codebases, and doing so might be a difficult but potentially solvable challenge.&lt;/p&gt;
 
 &lt;h2 id=&quot;how-might-github-copilot-be-commercialized&quot;&gt;How might GitHub Copilot be commercialized?&lt;/h2&gt;
 
@@ -91,6 +113,8 @@
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
 
 &lt;p&gt;It’s a mind-blowing tool and a very interesting and practical application of AI, but it’s not yet ready for prime time.&lt;/p&gt;
+
+&lt;p&gt;What are some more immediate applications I see for GitHub Copilot?&lt;/p&gt;
 
 &lt;h1 id=&quot;acknowledgements&quot;&gt;Acknowledgements&lt;/h1&gt;
 
