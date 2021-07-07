@@ -22,7 +22,7 @@ Based on the demos that GitHub Copilot provided and favorable reviews from beta-
 
 Here is a demo of GitHub Copilot in action (specifically for an ML-related task):
 
-> twitter:
+> twitter: https://twitter.com/iScienceLuvr/status/1411074516411764743
 
 It's clear that GitHub Copilot
 
@@ -77,8 +77,13 @@ So this confirms that indeed private information was available in the training s
 
 ### Multi-lingual capabilities of GitHub Copilot
 
+Another interesting aspect of the 
 
 ### Copyright/licensing issues
+
+Let's move on to the elephant in the room: copyright/licensing issues. GitHub Copilot/Codex was trained on all public GitHub code, regardless of license ([confirmed](https://twitter.com/NoraDotCodes/status/1412741339771461635) by GitHub). While [some argue](https://juliareda.eu/2021/07/github-copilot-is-not-infringing-your-copyright/) that training on copyrighted code is not an issue, it becomes much more challenging to argue that when Copilot is [regurgitating public code verbatim](https://twitter.com/mitsuhiko/status/1410886329924194309). According to GitHub, Copilot repeats code snippets verbatim about 0.1% of the time. They have also provided a more in-depth study [here](https://github.co/copilot-research-recitation). Thankfully they are currently developing origin tracker that tells where the verbatim code is coming from and allows you to decide whether to include proper attribution or not use that code altogether.
+
+In my opinion, because of these copyright issues, GitHub Copilot in its current state is not usable for commericial purposes. I think that once the origin tracker is released, copyright issues will be resolved, although it puts the onus on the user to make sure that code is properly attributed. Of course, the easier solution would have been to avoid training on copyrighted and GPL-licensed code altogether, which would have likely prevented the significant controversy that arose, and I wonder what led to the decision to train on all public GitHub code instead of further curating the dataset.
 
 ### Usage of outdated APIs 
 
@@ -88,7 +93,9 @@ I first discovered this issue when trying to write [fastai](https://docs.fast.ai
 
 To me, this is a major concern regarding the current usability of GitHub Copilot. If we are using cutting edge tools like PyTorch XLA, JAX, fastai, timm, GitHub Copilot has no knowledge of this and cannot provide useful suggestions. Somehow, the GitHub team needs to keep Copilot updated on newer codebases. Given that [telemetry of GitHub Copilot usage](https://docs.github.com/en/github/copilot/about-github-copilot-telemetry) is being sent to GitHub, it's possible that the GitHub team can further train their model on the usage of these newer codebases. Indeed, it is mentioned in the documentation that the telemetry data is used for "improving the underlying code generation models, e.g. by providing positive and negative examples (but always so that your private code is not used as input to suggest code for other users of GitHub Copilot)". Additionally, a GitHub Developer Advocate has [mentioned](https://youtu.be/St2CMvK4hK0?t=257) that "the model is being trained everyday, so the more people use it, Copilot will learn that these suggestions need to be updated".
 
-I wonder if the GitHub team might also develop a way of perhaps fine-tuning GitHub Copilot to specific use-cases. For example, there may be a specific GitHub Copilot models for fastai, JAX, etc. They would be fine-tuned on the source code of of these libraries and codebases that use these libraries. But making sure that the tool does not provide outdated suggestions would still be a challenge. I don't think it would be possible to provide suggestions for a brand-new library that does not have enough codebases using it to train on. Additionally, for situations like fastai where there are older APIs and newer APIs, when fine-tuning a model, the codebases using the older APIs would have to be filtered out. All in all, I personally think that getting GitHub Copilot to provide suggestions for new codebases is a difficult but a potentially solvable challenge. 
+I wonder if the GitHub team might also develop a way of perhaps fine-tuning GitHub Copilot to specific use-cases. For example, there may be a specific GitHub Copilot models for fastai, JAX, etc. They would be fine-tuned on the source code of of these libraries and codebases that use these libraries. But making sure that the tool does not provide outdated suggestions would still be a challenge. I don't think it would be possible to provide suggestions for a brand-new library that does not have enough codebases using it to train on. Additionally, for situations like fastai where there are older APIs and newer APIs, when fine-tuning a model, the codebases using the older APIs would have to be filtered out. 
+
+All in all, I personally think that for practical applications, it is necessary for GitHub Copilot to provide suggestions for new codebases, and doing so might be a difficult but potentially solvable challenge. 
 
 
 
@@ -105,6 +112,8 @@ While it is currently available for free to the beta-testers, the GitHub team ha
 
 
 It's a mind-blowing tool and a very interesting and practical application of AI, but it's not yet ready for prime time.
+
+What are some more immediate applications I see for GitHub Copilot?
 
 # Acknowledgements
 
