@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://tmabraham.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tmabraham.github.io/blog/" rel="alternate" type="text/html" /><updated>2021-07-07T17:04:05-05:00</updated><id>https://tmabraham.github.io/blog/feed.xml</id><title type="html">Tanishq Abraham’s blog</title><subtitle>My blog with tutorials and thoughts.</subtitle><entry><title type="html">Coding with GitHub Copilot</title><link href="https://tmabraham.github.io/blog/github_copilot" rel="alternate" type="text/html" title="Coding with GitHub Copilot" /><published>2021-07-08T00:00:00-05:00</published><updated>2021-07-08T00:00:00-05:00</updated><id>https://tmabraham.github.io/blog/GitHub-Copilot</id><content type="html" xml:base="https://tmabraham.github.io/blog/github_copilot">&lt;h1 id=&quot;coding-with-github-copilot&quot;&gt;Coding with GitHub Copilot&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://tmabraham.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tmabraham.github.io/blog/" rel="alternate" type="text/html" /><updated>2021-07-07T17:14:44-05:00</updated><id>https://tmabraham.github.io/blog/feed.xml</id><title type="html">Tanishq Abraham’s blog</title><subtitle>My blog with tutorials and thoughts.</subtitle><entry><title type="html">Coding with GitHub Copilot</title><link href="https://tmabraham.github.io/blog/github_copilot" rel="alternate" type="text/html" title="Coding with GitHub Copilot" /><published>2021-07-08T00:00:00-05:00</published><updated>2021-07-08T00:00:00-05:00</updated><id>https://tmabraham.github.io/blog/GitHub-Copilot</id><content type="html" xml:base="https://tmabraham.github.io/blog/github_copilot">&lt;h1 id=&quot;coding-with-github-copilot&quot;&gt;Coding with GitHub Copilot&lt;/h1&gt;
 
 &lt;p&gt;On July 1st, I was able to obtain access to GitHub Copilot, thanks to my friend &lt;a href=&quot;https://twitter.com/hamelhusain&quot;&gt;Hamel Husain&lt;/a&gt;. I wanted to share my experience and discoveries about this new tool. Much of the findings was demonstrated with the help of Mazen Alotaibi and Mark Saroufim.&lt;/p&gt;
 
@@ -11,9 +11,9 @@
 
 &lt;p&gt;Here is a demo of GitHub Copilot in action (specifically for an ML-related task):&lt;/p&gt;
 
-&lt;div class=&quot;jekyll-twitter-plugin&quot;&gt;&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Yesterday, I got access to &lt;a href=&quot;https://twitter.com/github?ref_src=twsrc%5Etfw&quot;&gt;@GitHub&lt;/a&gt; Copilot! 🥳&lt;br /&gt;&lt;br /&gt;And it really is quite amazing!&lt;br /&gt;&lt;br /&gt;Here&amp;#39;s a quick demo where I get GitHub Copilot to write most of the code for a script to fine-tune a ResNet50 on a custom dataset in &amp;lt;5 mins! (video is 2x) &lt;a href=&quot;https://t.co/sVjR7Tw062&quot;&gt;pic.twitter.com/sVjR7Tw062&lt;/a&gt;&lt;/p&gt;&amp;mdash; Tanishq Abraham is Fully Vaccinated 😷 (@iScienceLuvr) &lt;a href=&quot;https://twitter.com/iScienceLuvr/status/1411074516411764743?ref_src=twsrc%5Etfw&quot;&gt;July 2, 2021&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-&lt;/div&gt;
+&lt;center&gt;
+    &lt;div class=&quot;jekyll-twitter-plugin&quot;&gt;&lt;p&gt;There was a 'Bad Request' error fetching URL: '&amp;lt;a href=https://twitter.com/iScienceLuvr/status/1411074516411764743&amp;gt;&amp;lt;/a&amp;gt;'&lt;/p&gt;&lt;/div&gt;
+&lt;/center&gt;
 
 &lt;p&gt;It’s clear that GitHub Copilot understands the general PyTorch training workflow, and understands intricacies like what are the appropriate augmentations for images (resizing, random crop, normalization, etc.), making sure to put model into evaluation mode and with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;torch.no_grad()&lt;/code&gt; during validation, etc. These are things that sometimes we may forget to do, so it’s great that GitHub Copilot can help prevent us from making these common mistakes.&lt;/p&gt;
 
@@ -21,9 +21,9 @@
 
 &lt;p&gt;On a related note, some have hypothesized that GitHub Copilot might also lead to more test-driven development:&lt;/p&gt;
 
-&lt;div class=&quot;jekyll-twitter-plugin&quot;&gt;&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;I wonder if GitHub Co-pilot will lead to test-driven development for quick and dirty tasks&lt;br /&gt;&lt;br /&gt;1) Create a test for your need&lt;br /&gt;1) Quickly chain together a bunch of functions suggested by copilot until the test passes. It won&amp;#39;t be the most elegant solution but who cares if test passes&lt;/p&gt;&amp;mdash; ChrisAlbon.com (@chrisalbon) &lt;a href=&quot;https://twitter.com/chrisalbon/status/1410827508283367424?ref_src=twsrc%5Etfw&quot;&gt;July 2, 2021&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-&lt;/div&gt;
+&lt;center&gt;
+    &lt;div class=&quot;jekyll-twitter-plugin&quot;&gt;&lt;p&gt;There was a 'Bad Request' error fetching URL: '&amp;lt;a href=https://twitter.com/chrisalbon/status/1410827508283367424&amp;gt;&amp;lt;/a&amp;gt;'&lt;/p&gt;&lt;/div&gt;
+&lt;/center&gt;
 
 &lt;p&gt;I also want to point out that while most demos directly use GitHub Copilot in the editor, it’s also possible to open GitHub Copilot in a separate tab and have it generate and present multiple suggestions for you. Here are a couple examples of this:&lt;/p&gt;
 
