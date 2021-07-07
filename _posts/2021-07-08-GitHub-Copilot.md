@@ -22,7 +22,9 @@ Based on the demos that GitHub Copilot provided and favorable reviews from beta-
 
 Here is a demo of GitHub Copilot in action (specifically for an ML-related task):
 
-{% include twitter.html content="<code><a href=https://twitter.com/iScienceLuvr/status/1411074516411764743></a></code>" %}
+<center>
+{% twitter https://twitter.com/iScienceLuvr/status/1411074516411764743 %}
+</center>
 
 It's clear that GitHub Copilot understands the general PyTorch training workflow, and understands intricacies like what are the appropriate augmentations for images (resizing, random crop, normalization, etc.), making sure to put model into evaluation mode and with `torch.no_grad()` during validation, etc. These are things that sometimes we may forget to do, so it's great that GitHub Copilot can help prevent us from making these common mistakes.
 
@@ -30,7 +32,9 @@ GitHub Copilot performs best when you provide it with comments describing what y
 
 On a related note, some have hypothesized that GitHub Copilot might also lead to more test-driven development:
 
-{% include twitter.html content="<code><a href=https://twitter.com/chrisalbon/status/1410827508283367424></a></code>" %}
+<center>
+{% twitter https://twitter.com/chrisalbon/status/1410827508283367424 %}
+</center>
 
 I also want to point out that while most demos directly use GitHub Copilot in the editor, it's also possible to open GitHub Copilot in a separate tab and have it generate and present multiple suggestions for you. Here are a couple examples of this:
 
