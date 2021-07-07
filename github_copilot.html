@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Coding with GitHub Copilot | Tanishq Abraham’s blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Coding with GitHub Copilot" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="My thoughts and experience on the new GitHub Copilot tool." />
+<meta property="og:description" content="My thoughts and experience on the new GitHub Copilot tool." />
+<link rel="canonical" href="https://tmabraham.github.io/blog/github_copilot" />
+<meta property="og:url" content="https://tmabraham.github.io/blog/github_copilot" />
+<meta property="og:site_name" content="Tanishq Abraham’s blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-07-08T00:00:00-05:00" />
+<script type="application/ld+json">
+{"url":"https://tmabraham.github.io/blog/github_copilot","@type":"BlogPosting","headline":"Coding with GitHub Copilot","dateModified":"2021-07-08T00:00:00-05:00","datePublished":"2021-07-08T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tmabraham.github.io/blog/github_copilot"},"description":"My thoughts and experience on the new GitHub Copilot tool.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://tmabraham.github.io/blog/feed.xml" title="Tanishq Abraham's blog" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LRXD97FB1E"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LRXD97FB1E');
+</script>
+
+
+<link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Tanishq Abraham&#39;s blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About Me</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Coding with GitHub Copilot</h1><p class="page-description">My thoughts and experience on the new GitHub Copilot tool.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-07-08T00:00:00-05:00" itemprop="datePublished">
+        Jul 8, 2021
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      6 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#programming">programming</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#coding-with-github-copilot">Coding with GitHub Copilot</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#what-is-github-copilot">What is GitHub Copilot?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#github-copilot-is-a-tool-that-helps-you-to-code-faster">GitHub Copilot is a tool that helps you to code faster</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#challenges-with-github-copilot">Challenges with GitHub Copilot</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#personal-information-shared-by-github-copilot">Personal information shared by GitHub Copilot</a></li>
+<li class="toc-entry toc-h3"><a href="#multi-lingual-capabilities-of-github-copilot">Multi-lingual capabilities of GitHub Copilot</a></li>
+<li class="toc-entry toc-h3"><a href="#copyrightlicensing-issues">Copyright/licensing issues</a></li>
+<li class="toc-entry toc-h3"><a href="#usage-of-outdated-apis">Usage of outdated APIs</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#how-might-github-copilot-be-commercialized">How might GitHub Copilot be commercialized?</a></li>
+<li class="toc-entry toc-h2"><a href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#acknowledgements">Acknowledgements</a></li>
+</ul><h1 id="coding-with-github-copilot">
+<a class="anchor" href="#coding-with-github-copilot" aria-hidden="true"><span class="octicon octicon-link"></span></a>Coding with GitHub Copilot</h1>
+
+<p>On July 1st, I was able to obtain access to GitHub Copilot, thanks to my friend <a href="https://twitter.com/hamelhusain">Hamel Husain</a>. I wanted to share my experience and discoveries about this new tool. Much of the findings was demonstrated with the help of Mazen Alotaibi and Mark Saroufim.</p>
+
+<h2 id="what-is-github-copilot">
+<a class="anchor" href="#what-is-github-copilot" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is GitHub Copilot?</h2>
+<h3 id="github-copilot-is-a-tool-that-helps-you-to-code-faster">
+<a class="anchor" href="#github-copilot-is-a-tool-that-helps-you-to-code-faster" aria-hidden="true"><span class="octicon octicon-link"></span></a>GitHub Copilot is a tool that helps you to code faster</h3>
+
+<p>In case you haven’t logged onto Twitter or Hacker News in the past week, you might not know about <a href="https://copilot.github.com">GitHub Copilot</a>. Developed out of a partnership between OpenAI and Microsoft (GitHub’s parent company), it’s an AI-based autocomplete tool that helps you to write code faster. The GitHub team has termed it “your AI pair programmer”. OpenAI CTO Greg Brockman has explained that it utilizes the currently-unreleased Codex model, which is apparently a successor to the (in)famous GPT-3 language model. It has been trained on billions of lines of code available on GitHub.</p>
+
+<p>Based on the demos that GitHub Copilot provided and favorable reviews from beta-tester, I was eager to give it a try, but I was also skeptical if it really was as life-changing as people claimed it was. To my surprise, it was much better than I expected.</p>
+
+<p>Here is a demo of GitHub Copilot in action (specifically for an ML-related task):</p>
+
+<blockquote>
+  <p>twitter:</p>
+</blockquote>
+
+<p>It’s clear that GitHub Copilot</p>
+
+<p>There is one unintended consequence of GitHub Copilot that I find interesting. GitHub Copilot actually makes a pretty good autocomplete tool for regular writing. I actually discovered this when I started writing this blog post in a Markdown file in the VS Code editor. Of course, this is likely GitHub Copilot learning from README files and other documentation in various repositories. But I would genuinely consider writing more in Markdown files in VS Code with GitHub Copilot turned on because some of the autocomplete suggestions are actually quite helpful.</p>
+
+<h2 id="challenges-with-github-copilot">
+<a class="anchor" href="#challenges-with-github-copilot" aria-hidden="true"><span class="octicon octicon-link"></span></a>Challenges with GitHub Copilot</h2>
+
+<p>There are several challenges that I think could preclude widespread use of GitHub Copilot:</p>
+
+<ol>
+  <li>Leaking of personal information</li>
+  <li>Limited multi-lingual capabilities</li>
+  <li>Copyright/licensing issues</li>
+  <li>Usage of outdated APIs</li>
+</ol>
+
+<p>Let’s dive into each of these issue further.</p>
+
+<h3 id="personal-information-shared-by-github-copilot">
+<a class="anchor" href="#personal-information-shared-by-github-copilot" aria-hidden="true"><span class="octicon octicon-link"></span></a>Personal information shared by GitHub Copilot</h3>
+
+<p>One aspect we discovered was that GitHub Copilot would inadvertantly share information that would be considered personal, such as people’s names, phone numbers, emails, etc. This was something Mazen and I explored further. Here are a few examples of this.</p>
+
+<p>In a Python file, simply asking it to create a function to list author names indeed gives names of people that exist:
+<img src="https://media.discordapp.net/attachments/806360771038019669/860317676390580224/unknown.png" alt=""></p>
+
+<p>Mark demonstrated an example when writing a bash script when an actual person’s name was suggested in an autocompletion <a href="https://www.twitch.tv/marksaroufim/clip/ScrumptiousTangiblePastaDogFace-2bOqEL6P5pYl_ALK">here</a></p>
+
+<p>Interestingly, this method did not work for returning other types of information like phone numbers:</p>
+
+<p><img src="https://media.discordapp.net/attachments/806360771038019669/860319889410752542/unknown.png" alt=""></p>
+
+<p><img src="https://media.discordapp.net/attachments/806360771038019669/860321195526193162/unknown.png" alt=""></p>
+
+<p>But if we just ask GitHub Copilot to autocomplete phone number in a comment at the beginning of a Python file, it does work:</p>
+
+<p><img src="https://media.discordapp.net/attachments/806360771038019669/860322962472042536/unknown.png" alt=""></p>
+
+<p>Mazen looked more into this number, and found out it was used in several GitHub repositories, including a programming example problem <a href="https://github.com/krelly/codewars/blob/7f9a46c845c5918856bb8e740588519dbbbd1b26/5-kyu/phone-directory/README.md">here</a>.</p>
+
+<p>Mark also discovered that working API keys were provided by GitHub Copilot:
+<img src="https://media.discordapp.net/attachments/806360771038019669/861813846896017408/unknown.png?width=1028&amp;height=701" alt=""></p>
+
+<p>Interestingly, from my experiments, I was not able to get GitHub Copilot to leak any e-mail addresses.</p>
+
+<p>On their website, GitHub Copilot has the following information:</p>
+
+<p><img src="https://i.imgur.com/fB33Ofo.png" alt=""></p>
+
+<p>So this confirms that indeed private information was available in the training set that allows GitHub Copilot to leak this information. I was unable to easily get email addresses because of the rudimentary filtering that GitHub Copilot performed.</p>
+
+<h3 id="multi-lingual-capabilities-of-github-copilot">
+<a class="anchor" href="#multi-lingual-capabilities-of-github-copilot" aria-hidden="true"><span class="octicon octicon-link"></span></a>Multi-lingual capabilities of GitHub Copilot</h3>
+
+<h3 id="copyrightlicensing-issues">
+<a class="anchor" href="#copyrightlicensing-issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Copyright/licensing issues</h3>
+
+<h3 id="usage-of-outdated-apis">
+<a class="anchor" href="#usage-of-outdated-apis" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage of outdated APIs</h3>
+
+<p>As an ML researcher and developer, I am typically working with the latest ML frameworks and tools. However, GitHub Copilot is trained on older codebases and does not have knowledge of these cutting-edge tools and is often unable to provide relevant suggestions.</p>
+
+<p>I first discovered this issue when trying to write <a href="https://docs.fast.ai">fastai</a>-related code and get GitHub Copilot to provide relevant suggestions. However, since the latest version of fastai was only released in August 2020, GitHub Copilot was not able to provide any relevant suggestions and instead provided code for using older versions of fastai. This indicates that the codebases that GitHub Copilot is trained on must be at least before August 2020, if not earlier. Similarly, I discovered that GitHub Copilot was unable to provide any suggestions regarding the usage of the <a href="https://github.com/rwightman/pytorch-image-models">timm</a> library, which is one of the leading deep learning+computer vision libraries.</p>
+
+<p>To me, this is a major concern regarding the current usability of GitHub Copilot. If we are using cutting edge tools like PyTorch XLA, JAX, fastai, timm, GitHub Copilot has no knowledge of this and cannot provide useful suggestions. Somehow, the GitHub team needs to keep Copilot updated on newer codebases. Given that <a href="https://docs.github.com/en/github/copilot/about-github-copilot-telemetry">telemetry of GitHub Copilot usage</a> is being sent to GitHub, it’s possible that the GitHub team can further train their model on the usage of these newer codebases. Indeed, it is mentioned in the documentation that the telemetry data is used for “improving the underlying code generation models, e.g. by providing positive and negative examples (but always so that your private code is not used as input to suggest code for other users of GitHub Copilot)”. Additionally, a GitHub Developer Advocate has <a href="https://youtu.be/St2CMvK4hK0?t=257">mentioned</a> that “the model is being trained everyday, so the more people use it, Copilot will learn that these suggestions need to be updated”.</p>
+
+<p>I wonder if the GitHub team might also develop a way of perhaps fine-tuning GitHub Copilot to specific use-cases. For example, there may be a specific GitHub Copilot models for fastai, JAX, etc. They would be fine-tuned on the source code of of these libraries and codebases that use these libraries. But making sure that the tool does not provide outdated suggestions would still be a challenge. I don’t think it would be possible to provide suggestions for a brand-new library that does not have enough codebases using it to train on. Additionally, for situations like fastai where there are older APIs and newer APIs, when fine-tuning a model, the codebases using the older APIs would have to be filtered out. All in all, I personally think that getting GitHub Copilot to provide suggestions for new codebases is a difficult but a potentially solvable challenge.</p>
+
+<h2 id="how-might-github-copilot-be-commercialized">
+<a class="anchor" href="#how-might-github-copilot-be-commercialized" aria-hidden="true"><span class="octicon octicon-link"></span></a>How might GitHub Copilot be commercialized?</h2>
+
+<p>While it is currently available for free to the beta-testers, the GitHub team has already mentioned they plan to commercialize this product. There are several ways that GitHub Copilot could be commercialized:</p>
+
+<ol>
+  <li>A monthly fee for personal use of a generic GitHub Copilot model</li>
+  <li>Enterprises paying for a model fine-tuned to their specific, private codebases</li>
+  <li>Separate fees for domain-specific models (ex: a GitHub Copilot model for writing machine learning code, or a GitHub Copilot model for web development)</li>
+</ol>
+
+<h2 id="conclusion">
+<a class="anchor" href="#conclusion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusion</h2>
+
+<p>It’s a mind-blowing tool and a very interesting and practical application of AI, but it’s not yet ready for prime time.</p>
+
+<h1 id="acknowledgements">
+<a class="anchor" href="#acknowledgements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Acknowledgements</h1>
+
+<p>Thank you to <a href="https://twitter.com/hamelhusain">Hamel Husain</a> for helping to provide access to the GitHub Copilot tool.</p>
+
+<p>Thank you to <a href="https://twitter.com/sudomaze">Mazen Alotaibi</a> for the</p>
+
+  </div><a class="u-url" href="/blog/github_copilot" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>My blog with tutorials and thoughts.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/tmabraham" title="tmabraham"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/iScienceLuvr" title="iScienceLuvr"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
