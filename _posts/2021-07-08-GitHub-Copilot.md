@@ -10,13 +10,13 @@ title: Coding with GitHub Copilot
 ---
 # Coding with GitHub Copilot
 
-On July 1st, I was able to obtain access to GitHub Copilot, thanks to my friend [Hamel Husain](https://twitter.com/hamelhusain). I wanted to share my experience and discoveries about this new tool. Much of the findings was demonstrated with the help of Mazen Alotaibi and Mark Saroufim. 
+On July 1st, I was able to obtain access to GitHub Copilot, thanks to my friend [Hamel Husain](https://twitter.com/hamelhusain). I wanted to share my experience and discoveries about this new tool. Much of the findings was demonstrated with the help of Mazen Alotaibi, Ryan Panwar, and Mark Saroufim. 
 
 ## What is GitHub Copilot?
 ### GitHub Copilot is a tool that helps you to code faster
 
 
-In case you haven't logged onto Twitter or Hacker News in the past week, you might not know about [GitHub Copilot](https://copilot.github.com). Developed out of a partnership between OpenAI and Microsoft (GitHub's parent company), it's an AI-based autocomplete tool that helps you to write code faster. The GitHub team has termed it "your AI pair programmer". OpenAI CTO Greg Brockman has explained that it utilizes the currently-unreleased Codex model, which is apparently a successor to the (in)famous GPT-3 language model. It has been trained on billions of lines of code available on GitHub.
+In case you haven't logged onto Twitter or Hacker News in the past week, you might not know about [GitHub Copilot](https://copilot.github.com). Developed out of a partnership between OpenAI and Microsoft (GitHub's parent company), it's an AI-based autocomplete tool that helps you to write code faster. The GitHub team has termed it "your AI pair programmer". OpenAI CTO Greg Brockman has explained that it utilizes the currently-unreleased Codex model, which is apparently a successor to the (in)famous GPT-3 language model. It has been trained on billions of lines of code available on GitHub. [^1]: The OpenAI team has recently released a [paper](https://arxiv.org/abs/2107.03374) on the Codex model that was trained on Python code, and it is noted that the GitHub Copilot model is a descendant of the one reported in the paper. Importantly, this paper indicates that Codex model is a fine-tuned GPT-3 model. It is likely that the GitHub Copilot version is also a GPT-3 model that is instead fine-tuned on the whole GitHub dataset.
 
 Based on the demos that GitHub Copilot provided and favorable reviews from beta-tester, I was eager to give it a try, but I was also skeptical if it really was as life-changing as people claimed it was. To my surprise, it was much better than I expected.
 
@@ -36,11 +36,12 @@ On a related note, some have hypothesized that GitHub Copilot might also lead to
 {% twitter https://twitter.com/chrisalbon/status/1410827508283367424 %}
 </center>
 
-I also want to point out that while most demos directly use GitHub Copilot in the editor, it's also possible to open GitHub Copilot in a separate tab and have it generate and present multiple suggestions for you. Here are a couple examples of this:
+I also want to point out that while most demos directly use GitHub Copilot in the editor, it's also possible to open GitHub Copilot in a separate tab and have it generate and present multiple suggestions for you. Here's an example:
+
 
 I quite like this feature, because it provides various approaches for solving a particular task, and I can select which approach I want to use. For instance, in the above example, it shows various approaches for defining a ResNet50 model for fine-tuning. I typically prefer defining a class for the ResNet50, so I select that option. 
 
-There is another unintended consequence of GitHub Copilot that I find interesting. GitHub Copilot actually makes a pretty good autocomplete tool for regular writing. I actually discovered this when I started writing this blog post in a Markdown file in the VS Code editor. Of course, this is likely GitHub Copilot learning from README files and other documentation in various repositories. But I would genuinely consider writing more in Markdown files in VS Code with GitHub Copilot turned on because some of the autocomplete suggestions are actually quite helpful. 
+There is another unintended consequence of GitHub Copilot that I find interesting. GitHub Copilot actually makes a pretty good autocomplete tool for regular writing. I actually discovered this when I started writing this blog post in a Markdown file in the VS Code editor. Of course, this is likely GitHub Copilot learning from README files and other documentation in various repositories, and there could be some residual general knowledge from the underlying GPT-3 model (if that is indeed the base model used) [^2]: This [video](https://www.youtube.com/watch?v=L6Nr1uc80pY) demonstrates an example of some of the more general knowledge GitHub Copilot seems to have. But I would genuinely consider writing more in Markdown files in VS Code with GitHub Copilot turned on because some of the autocomplete suggestions are actually quite helpful. 
 
 
 ## Challenges with GitHub Copilot
@@ -104,7 +105,11 @@ In my opinion, because of these copyright issues, GitHub Copilot in its current 
 
 As an ML researcher and developer, I am typically working with the latest ML frameworks and tools. However, GitHub Copilot is trained on older codebases and does not have knowledge of these cutting-edge tools and is often unable to provide relevant suggestions.
 
-I first discovered this issue when trying to write [fastai](https://docs.fast.ai)-related code and get GitHub Copilot to provide relevant suggestions. However, since the latest version of fastai was only released in August 2020, GitHub Copilot was not able to provide any relevant suggestions and instead provided code for using older versions of fastai. This indicates that the codebases that GitHub Copilot is trained on must be at least before August 2020, if not earlier. Similarly, I discovered that GitHub Copilot was unable to provide any suggestions regarding the usage of the [timm](https://github.com/rwightman/pytorch-image-models) library, which is one of the leading deep learning+computer vision libraries.
+I first discovered this issue when trying to write [fastai](https://docs.fast.ai)-related code and get GitHub Copilot to provide relevant suggestions. However, since the latest version of fastai was only released in August 2020, GitHub Copilot was not able to provide any relevant suggestions and instead provided code for using older versions of fastai. This indicates that the codebases that GitHub Copilot is trained on must be at least before August 2020, if not earlier. Similarly, I discovered that GitHub Copilot was unable to provide any suggestions regarding the usage of the [timm](https://github.com/rwightman/pytorch-image-models) library, which is one of the leading deep learning+computer vision libraries. 
+
+Here is a video that demonstrates this issue:
+
+<blockquote class="imgur-embed-pub" lang="en" data-id="OH8rtxc" data-context="false" ><a href="//imgur.com/OH8rtxc"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 To me, this is a major concern regarding the current usability of GitHub Copilot. If we are using cutting edge tools like PyTorch XLA, JAX, fastai, timm, GitHub Copilot has no knowledge of this and cannot provide useful suggestions. Somehow, the GitHub team needs to keep Copilot updated on newer codebases. Given that [telemetry of GitHub Copilot usage](https://docs.github.com/en/github/copilot/about-github-copilot-telemetry) is being sent to GitHub, it's possible that the GitHub team can further train their model on the usage of these newer codebases. Indeed, it is mentioned in the documentation that the telemetry data is used for "improving the underlying code generation models, e.g. by providing positive and negative examples (but always so that your private code is not used as input to suggest code for other users of GitHub Copilot)". Additionally, a GitHub Developer Advocate has [mentioned](https://youtu.be/St2CMvK4hK0?t=257) that "the model is being trained everyday, so the more people use it, Copilot will learn that these suggestions need to be updated".
 
@@ -131,6 +136,6 @@ What are some more immediate applications I see for GitHub Copilot?
 
 # Acknowledgements
 
-Thank you to [Hamel Husain](https://twitter.com/hamelhusain) for helping to provide access to the GitHub Copilot tool.
+Thank you to [Hamel Husain](https://twitter.com/hamelhusain) for helping to provide access to the GitHub Copilot tool and also for reviewing the blog post.
 
-Thank you to [Mazen Alotaibi](https://twitter.com/sudomaze) for the 
+Thank you to [Mazen Alotaibi](https://twitter.com/sudomaze), Ryan Panwar, and [Mark Saroufim](https://twitter.com/mark_saroufim) for sharing their ideas to try with GitHub Copilot and also for reviewing the blog post.
