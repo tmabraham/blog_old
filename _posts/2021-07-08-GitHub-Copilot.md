@@ -96,7 +96,6 @@ So this confirms that indeed private information was available in the training s
 ### Multi-lingual capabilities of GitHub Copilot
 
 As we mentioned before, GitHub Copilot performs best when you provide it with comments explaining your intent. Therefore, Mazen and I wanted to explore how well GitHub Copilot can perform with comments in various languages. Since I am not the most multi-lingual person, I mainly used Google Translate to translate my English comments to various languages and observe how well it performed. Let's go over an example. Below, I give GitHub Copilot the prompt to "Add two numbers" and see what Python code it suggests:
-
 <style>
     table {
     text-align: center
@@ -119,6 +118,7 @@ As we mentioned before, GitHub Copilot performs best when you provide it with co
     </tr>
   </thead>
   <tbody>
+    <tr>
       <td><video width="528" height="310" controls><source src="https://i.imgur.com/4BNewWz.mp4" type="video/mp4"></video></td>
     </tr>
   </tbody>
@@ -128,6 +128,7 @@ As we mentioned before, GitHub Copilot performs best when you provide it with co
     </tr>
   </thead>
   <tbody>
+  	<tr>
       <td><video width="528" height="310" controls><source src="https://i.imgur.com/Fko6cBm.mp4" type="video/mp4"></video></td>
     </tr>
   </tbody>
@@ -137,6 +138,7 @@ As we mentioned before, GitHub Copilot performs best when you provide it with co
     </tr>
   </thead>
   <tbody>
+  	<tr>
       <td><video width="528" height="310" controls><source src="https://i.imgur.com/MY8rJ0A.mp4" type="video/mp4"></video></td>
     </tr>
   </tbody>
