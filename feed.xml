@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://tmabraham.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tmabraham.github.io/blog/" rel="alternate" type="text/html" /><updated>2021-07-12T23:24:10-05:00</updated><id>https://tmabraham.github.io/blog/feed.xml</id><title type="html">Tanishq Abraham’s blog</title><subtitle>My blog with tutorials and thoughts.</subtitle><entry><title type="html">Coding with GitHub Copilot</title><link href="https://tmabraham.github.io/blog/github_copilot" rel="alternate" type="text/html" title="Coding with GitHub Copilot" /><published>2021-07-08T00:00:00-05:00</published><updated>2021-07-08T00:00:00-05:00</updated><id>https://tmabraham.github.io/blog/GitHub-Copilot</id><content type="html" xml:base="https://tmabraham.github.io/blog/github_copilot">&lt;h1 id=&quot;coding-with-github-copilot&quot;&gt;Coding with GitHub Copilot&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://tmabraham.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tmabraham.github.io/blog/" rel="alternate" type="text/html" /><updated>2021-07-13T00:04:59-05:00</updated><id>https://tmabraham.github.io/blog/feed.xml</id><title type="html">Tanishq Abraham’s blog</title><subtitle>My blog with tutorials and thoughts.</subtitle><entry><title type="html">Coding with GitHub Copilot</title><link href="https://tmabraham.github.io/blog/github_copilot" rel="alternate" type="text/html" title="Coding with GitHub Copilot" /><published>2021-07-08T00:00:00-05:00</published><updated>2021-07-08T00:00:00-05:00</updated><id>https://tmabraham.github.io/blog/GitHub-Copilot</id><content type="html" xml:base="https://tmabraham.github.io/blog/github_copilot">&lt;h1 id=&quot;coding-with-github-copilot&quot;&gt;Coding with GitHub Copilot&lt;/h1&gt;
 
 &lt;p&gt;On July 1st, I was able to obtain access to GitHub Copilot, thanks to my friend &lt;a href=&quot;https://twitter.com/hamelhusain&quot;&gt;Hamel Husain&lt;/a&gt;. I wanted to share my experience and discoveries about this new tool. Much of the findings was demonstrated with the help of Mazen Alotaibi, Ryan Panwar, and Mark Saroufim.&lt;/p&gt;
 
@@ -7,7 +7,7 @@
 
 &lt;p&gt;In case you haven’t logged onto Twitter or Hacker News in the past week, you might not know about &lt;a href=&quot;https://copilot.github.com&quot;&gt;GitHub Copilot&lt;/a&gt;. Developed out of a partnership between OpenAI and Microsoft (GitHub’s parent company), it’s an AI-based autocomplete tool that helps you to write code faster. The GitHub team has termed it “your AI pair programmer”. OpenAI CTO Greg Brockman has explained that it utilizes the currently-unreleased Codex model, which is apparently a successor to the (in)famous GPT-3 language model. It has been trained on billions of lines of code available on GitHub &lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
 
-&lt;p&gt;Based on the demos that GitHub Copilot provided and favorable reviews from beta-tester, I was eager to give it a try, but I was also skeptical if it really was as life-changing as people claimed it was. To my surprise, it was much better than I expected.&lt;/p&gt;
+&lt;p&gt;Based on the demos that GitHub Copilot provided and favorable reviews from beta-testers, I was eager to give it a try, but I was also skeptical if it really was as life-changing as people claimed it was. To my surprise, it was much better than I expected.&lt;/p&gt;
 
 &lt;p&gt;Here is a demo of GitHub Copilot in action (specifically for an ML-related task):&lt;/p&gt;
 
@@ -52,7 +52,7 @@
   &lt;li&gt;Usage of outdated APIs&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;Let’s dive into each of these issue further.&lt;/p&gt;
+&lt;p&gt;Let’s dive into each of these issues further.&lt;/p&gt;
 
 &lt;h3 id=&quot;personal-information-shared-by-github-copilot&quot;&gt;Personal information shared by GitHub Copilot&lt;/h3&gt;
 
@@ -90,13 +90,7 @@
 
 &lt;p&gt;As we mentioned before, GitHub Copilot performs best when you provide it with comments explaining your intent. Therefore, Mazen and I wanted to explore how well GitHub Copilot can perform with comments in various languages. Since I am not the most multi-lingual person, I mainly used Google Translate to translate my English comments to various languages and observe how well it performed. Let’s go over an example. Below, I give GitHub Copilot the prompt to “Add two numbers” and see what Python code it suggests:&lt;/p&gt;
 
-&lt;style&gt;
-table.center {
-  margin-left: auto; 
-  margin-right: auto;
-}
-&lt;/style&gt;
-
+&lt;div style=&quot;margin-left:auto !important; margin-right:auto !important;&quot;&gt;
 &lt;table class=&quot;center&quot;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -115,6 +109,7 @@ table.center {
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Of course, if you comment with English, GitHub Copilot provides a good suggestion. It gives us an adding function as well as some use-cases. But as demonstrated in these experiments, the quality of GitHub Copilot suggestions when given comments in other languages likely is correlated with the overall frequency of these languages in the trainin data. It’s likely that Mandarin is more common than Arabic and Spanish in the training set, so GitHub Copilot performs better with Mandarin comments. Of course, this is a single example (although I observed similar results with other prompts). However, given that it’s well-established that biases in the training data are reflected in the output of any ML algorithm (unless it is appropriately counteracted), I think it is safe to assume that GitHub Copilot will likely be less useful for non-English-speaking users.&lt;/p&gt;
 
