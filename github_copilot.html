@@ -257,30 +257,43 @@ window.onload = wrap_img;
 </style>
 
 <table>
-<thead>
-<tr>
-<th>English</th>
-<th>Mandarin</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><video width="262" height="161" controls=""><source src="https://i.imgur.com/tcyHz3S.mp4" type="video/mp4"></source></video></td>
-<td><video width="262" height="161" controls=""><source src="https://i.imgur.com/4BNewWz.mp4" type="video/mp4"></source></video></td>
-</tr>
-</tbody>
-<thead>
-<tr>
-<th>Arabic</th>
-<th>Spanish</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><video width="262" height="161" controls=""><source src="https://i.imgur.com/MY8rJ0A.mp4" type="video/mp4"></source></video></td>
-<td><video width="262" height="161" controls=""><source src="https://i.imgur.com/Fko6cBm.mp4" type="video/mp4"></source></video></td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>English</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><video width="528" height="310" controls=""><source src="https://i.imgur.com/tcyHz3S.mp4" type="video/mp4"></source></video></td>
+    </tr>
+  </tbody>
+  <thead>
+    <tr>
+      <th>Mandarin</th>
+    </tr>
+  </thead>
+  <tbody>
+      <td><video width="528" height="310" controls=""><source src="https://i.imgur.com/4BNewWz.mp4" type="video/mp4"></source></video></td>
+    &lt;/tr&gt;
+  </tbody>
+  <thead>
+    <tr>
+      <th>Spanish</th>
+    </tr>
+  </thead>
+  <tbody>
+      <td><video width="528" height="310" controls=""><source src="https://i.imgur.com/Fko6cBm.mp4" type="video/mp4"></source></video></td>
+    &lt;/tr&gt;
+  </tbody>
+  <thead>
+    <tr>
+      <th>Arabic</th>
+    </tr>
+  </thead>
+  <tbody>
+      <td><video width="528" height="310" controls=""><source src="https://i.imgur.com/MY8rJ0A.mp4" type="video/mp4"></source></video></td>
+    &lt;/tr&gt;
+  </tbody>
 </table>
 
 <p>Of course, if you comment with English, GitHub Copilot provides a good suggestion. It gives us an adding function as well as some use-cases. But as demonstrated in these experiments, the quality of GitHub Copilot suggestions when given comments in other languages likely is correlated with the overall frequency of these languages in the training data. It’s likely that Mandarin and Spanish is more common than Arabic in the training set, so GitHub Copilot performs better with Mandarin and Spanish comments. Of course, this is a single example (although I observed similar results with other prompts). However, given that it’s well-established that biases in the training data are reflected in the output of any ML algorithm (unless it is appropriately counteracted), I think it is safe to assume that GitHub Copilot will likely be less useful for non-English-speaking users.</p>
