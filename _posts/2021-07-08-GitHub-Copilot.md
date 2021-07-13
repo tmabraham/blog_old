@@ -16,7 +16,7 @@ On July 1st, I was able to obtain access to GitHub Copilot, thanks to my friend 
 ### GitHub Copilot is a tool that helps you to code faster
 
 
-In case you haven't logged onto Twitter or Hacker News in the past week, you might not know about [GitHub Copilot](https://copilot.github.com). Developed out of a partnership between OpenAI and Microsoft (GitHub's parent company), it's an AI-based autocomplete tool that helps you to write code faster. The GitHub team has termed it "your AI pair programmer". OpenAI CTO Greg Brockman has explained that it utilizes the currently-unreleased Codex model, which is apparently a successor to the (in)famous GPT-3 language model. It has been trained on billions of lines of code available on GitHub. [^1]: The OpenAI team has recently released a [paper](https://arxiv.org/abs/2107.03374) on the Codex model that was trained on Python code, and it is noted that the GitHub Copilot model is a descendant of the one reported in the paper. Importantly, this paper indicates that Codex model is a fine-tuned GPT-3 model. It is likely that the GitHub Copilot version is also a GPT-3 model that is instead fine-tuned on the whole GitHub dataset.
+In case you haven't logged onto Twitter or Hacker News in the past week, you might not know about [GitHub Copilot](https://copilot.github.com). Developed out of a partnership between OpenAI and Microsoft (GitHub's parent company), it's an AI-based autocomplete tool that helps you to write code faster. The GitHub team has termed it "your AI pair programmer". OpenAI CTO Greg Brockman has explained that it utilizes the currently-unreleased Codex model, which is apparently a successor to the (in)famous GPT-3 language model. It has been trained on billions of lines of code available on GitHub [^1]. 
 
 Based on the demos that GitHub Copilot provided and favorable reviews from beta-tester, I was eager to give it a try, but I was also skeptical if it really was as life-changing as people claimed it was. To my surprise, it was much better than I expected.
 
@@ -38,10 +38,15 @@ On a related note, some have hypothesized that GitHub Copilot might also lead to
 
 I also want to point out that while most demos directly use GitHub Copilot in the editor, it's also possible to open GitHub Copilot in a separate tab and have it generate and present multiple suggestions for you. Here's an example:
 
+<center>
+<video width="262" height="161" controls>
+  <source src="https://i.imgur.com/ah49d8V.mp4" type="video/mp4">
+</video>
+</center>
 
 I quite like this feature, because it provides various approaches for solving a particular task, and I can select which approach I want to use. For instance, in the above example, it shows various approaches for defining a ResNet50 model for fine-tuning. I typically prefer defining a class for the ResNet50, so I select that option. 
 
-There is another unintended consequence of GitHub Copilot that I find interesting. GitHub Copilot actually makes a pretty good autocomplete tool for regular writing. I actually discovered this when I started writing this blog post in a Markdown file in the VS Code editor. Of course, this is likely GitHub Copilot learning from README files and other documentation in various repositories, and there could be some residual general knowledge from the underlying GPT-3 model (if that is indeed the base model used) [^2]: This [video](https://www.youtube.com/watch?v=L6Nr1uc80pY) demonstrates an example of some of the more general knowledge GitHub Copilot seems to have. But I would genuinely consider writing more in Markdown files in VS Code with GitHub Copilot turned on because some of the autocomplete suggestions are actually quite helpful. 
+There is another unintended consequence of GitHub Copilot that I find interesting. GitHub Copilot actually makes a pretty good autocomplete tool for regular writing. I actually discovered this when I started writing this blog post in a Markdown file in the VS Code editor. Of course, this is likely GitHub Copilot learning from README files and other documentation in various repositories, and there could be some residual general knowledge from the underlying GPT-3 model (if that is indeed the base model used) [^2]. But I would genuinely consider writing more in Markdown files with VS Code + GitHub Copilot because some of the autocomplete suggestions are actually quite helpful. 
 
 
 ## Challenges with GitHub Copilot
@@ -90,10 +95,34 @@ So this confirms that indeed private information was available in the training s
 
 ### Multi-lingual capabilities of GitHub Copilot
 
-As we mentioned before, GitHub Copilot performs best when you provide it with comments explaining your intent. Therefore, Mazen and I wanted to explore how well GitHub Copilot can perform with comments in various languages. Since I am not the most multi-lingual person, I mainly used Google Translate to translate my English comments to various languages and observe how well it performed. Let's go over a few examples.
+As we mentioned before, GitHub Copilot performs best when you provide it with comments explaining your intent. Therefore, Mazen and I wanted to explore how well GitHub Copilot can perform with comments in various languages. Since I am not the most multi-lingual person, I mainly used Google Translate to translate my English comments to various languages and observe how well it performed. Let's go over an example. Below, I give GitHub Copilot the prompt to "Add two numbers" and see what Python code it suggests:
 
+<center>
+<table style="width:100%">
+  <tr>
+    <th>English</th>
+    <th>Mandarin</th>
+    <th>Arabic</th>
+    <th>Spanish</th>
+  </tr>
+  <tr>
+    <td><video width="262" height="161" controls>
+  <source src="ttps://i.imgur.com/MY8rJ0A.mp4" type="video/mp4">
+</video></td>
+    <td><video width="262" height="161" controls>
+  <source src="ttps://i.imgur.com/MY8rJ0A.mp4" type="video/mp4">
+</video></td>
+    <td><video width="262" height="161" controls>
+  <source src="ttps://i.imgur.com/MY8rJ0A.mp4" type="video/mp4">
+</video></td>
+    <td><video width="262" height="161" controls>
+  <source src="ttps://i.imgur.com/MY8rJ0A.mp4" type="video/mp4">
+</video></td>
+  </tr>
+</table>
+</center>
 
-Of course, if you comment with English, GitHub Copilot provide the best suggestions. But as demonstrated in these experiments, the quality of GitHub Copilot suggestions when given comments in other languages likely is correlated with the overall frequency of these languages in the trainin data. It's likely that Chinese and Hindi are more common than Arabic and French in the training set, so GitHub Copilot performs better with comments in these languages.
+Of course, if you comment with English, GitHub Copilot provides a good suggestion. It gives us an adding function as well as some use-cases. But as demonstrated in these experiments, the quality of GitHub Copilot suggestions when given comments in other languages likely is correlated with the overall frequency of these languages in the trainin data. It's likely that Mandarin is more common than Arabic and Spanish in the training set, so GitHub Copilot performs better with Mandarin comments. Of course, this is a single example (although I observed similar results with other prompts). However, given that it's well-established that biases in the training data are reflected in the output of any ML algorithm (unless it is appropriately counteracted), I think it is safe to assume that GitHub Copilot will likely be less useful for non-English-speaking users.
 
 ### Copyright/licensing issues
 
@@ -109,7 +138,11 @@ I first discovered this issue when trying to write [fastai](https://docs.fast.ai
 
 Here is a video that demonstrates this issue:
 
-<blockquote class="imgur-embed-pub" lang="en" data-id="OH8rtxc" data-context="false" ><a href="//imgur.com/OH8rtxc"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+<center>
+<video width="262" height="161" controls>
+  <source src="https://i.imgur.com/OH8rtxc.mp4" type="video/mp4">
+</video>
+</center>
 
 To me, this is a major concern regarding the current usability of GitHub Copilot. If we are using cutting edge tools like PyTorch XLA, JAX, fastai, timm, GitHub Copilot has no knowledge of this and cannot provide useful suggestions. Somehow, the GitHub team needs to keep Copilot updated on newer codebases. Given that [telemetry of GitHub Copilot usage](https://docs.github.com/en/github/copilot/about-github-copilot-telemetry) is being sent to GitHub, it's possible that the GitHub team can further train their model on the usage of these newer codebases. Indeed, it is mentioned in the documentation that the telemetry data is used for "improving the underlying code generation models, e.g. by providing positive and negative examples (but always so that your private code is not used as input to suggest code for other users of GitHub Copilot)". Additionally, a GitHub Developer Advocate has [mentioned](https://youtu.be/St2CMvK4hK0?t=257) that "the model is being trained everyday, so the more people use it, Copilot will learn that these suggestions need to be updated".
 
@@ -130,12 +163,19 @@ While it is currently available for free to the beta-testers, the GitHub team ha
 
 ## Conclusion
 
-It's a mind-blowing tool and a very interesting and practical application of AI, but it's not yet ready for prime time.
+In conclusion, GitHub Copilot, is a mind-blowing and extremely powerful tool. Additionally, it is a very interesting and practical application of AI. With the domains that it is most familiar, GitHub Copilot works exceptionally well and can write most of the code for you! It may very well change the approach and workflow many programmers have and lead to documentation-driven and test-driven development. 
 
-What are some more immediate applications I see for GitHub Copilot?
+But it's not yet ready for prime time. There are clear issues with leaking of personal information copyright/licensing issues, accessibility to foreign-language users, and its use on more cutting-edge projects. Thankfully, the GitHub team is working on these issues and I'm excited by the future of AI-augmented programming!
+
 
 # Acknowledgements
 
 Thank you to [Hamel Husain](https://twitter.com/hamelhusain) for helping to provide access to the GitHub Copilot tool and also for reviewing the blog post.
 
 Thank you to [Mazen Alotaibi](https://twitter.com/sudomaze), Ryan Panwar, and [Mark Saroufim](https://twitter.com/mark_saroufim) for sharing their ideas to try with GitHub Copilot and also for reviewing the blog post.
+
+# Footnotes
+
+[^1]: The OpenAI team has recently released a [paper](https://arxiv.org/abs/2107.03374) on the Codex model that was trained on Python code, and it is noted that the GitHub Copilot model is a descendant of the one reported in the paper. Importantly, this paper indicates that Codex model is a fine-tuned GPT-3 model. It is likely that the GitHub Copilot version is also a GPT-3 model that is instead fine-tuned on the whole GitHub dataset.
+
+[^2]: This [video](https://www.youtube.com/watch?v=L6Nr1uc80pY) demonstrates an example of some of the more general knowledge GitHub Copilot seems to have.
