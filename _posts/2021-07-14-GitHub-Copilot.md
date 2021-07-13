@@ -2,7 +2,7 @@
 toc: true
 layout: post
 description: My thoughts and experience on the new GitHub Copilot tool.
-hide: true
+hide: false
 search_exclude: true
 categories: [programming]
 permalink: /github_copilot
@@ -16,7 +16,7 @@ On July 1st, I was able to obtain access to GitHub Copilot, thanks to my friend 
 ### GitHub Copilot is a tool that helps you to code faster
 
 
-In case you haven't logged onto Twitter or Hacker News in the past week, you might not know about [GitHub Copilot](https://copilot.github.com). Developed out of a partnership between OpenAI and Microsoft (GitHub's parent company), it's an AI-based autocomplete tool that helps you to write code faster. The GitHub team has termed it "your AI pair programmer". OpenAI CTO Greg Brockman has explained that it utilizes the currently-unreleased Codex model, which is apparently a successor to the (in)famous GPT-3 language model. It has been trained on billions of lines of code available on GitHub [^1]. 
+In case you haven't logged onto Twitter or Hacker News in the last couple weeks, you might not know about [GitHub Copilot](https://copilot.github.com). Developed out of a partnership between OpenAI and Microsoft (GitHub's parent company), it's an AI-based autocomplete tool that helps you to write code faster. The GitHub team has termed it "your AI pair programmer". OpenAI CTO Greg Brockman has explained that it utilizes the currently-unreleased Codex model, which is apparently a successor to the (in)famous GPT-3 language model. It has been trained on billions of lines of code available on GitHub [^1]. 
 
 Based on the demos that GitHub Copilot provided and favorable reviews from beta-testers, I was eager to give it a try, but I was also skeptical if it really was as life-changing as people claimed it was. To my surprise, it was much better than I expected.
 
