@@ -250,26 +250,32 @@ window.onload = wrap_img;
 
 <p>As we mentioned before, GitHub Copilot performs best when you provide it with comments explaining your intent. Therefore, Mazen and I wanted to explore how well GitHub Copilot can perform with comments in various languages. Since I am not the most multi-lingual person, I mainly used Google Translate to translate my English comments to various languages and observe how well it performed. Let’s go over an example. Below, I give GitHub Copilot the prompt to “Add two numbers” and see what Python code it suggests:</p>
 
-<div style="margin-left:auto !important; margin-right:auto !important;">
-<table class="center">
+<table>
 <thead>
 <tr>
 <th>English</th>
 <th>Mandarin</th>
-<th>Arabic</th>
-<th>Spanish</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><video width="262" height="161" controls=""><source src="https://i.imgur.com/tcyHz3S.mp4" type="video/mp4"></source></video></td>
 <td><video width="262" height="161" controls=""><source src="https://i.imgur.com/ZFbvRGl.mp4" type="video/mp4"></source></video></td>
+</tr>
+</tbody>
+<thead>
+<tr>
+<th>Arabic</th>
+<th>Spanish</th>
+</tr>
+</thead>
+<tbody>
+<tr>
 <td><video width="262" height="161" controls=""><source src="https://i.imgur.com/MY8rJ0A.mp4" type="video/mp4"></source></video></td>
 <td><video width="262" height="161" controls=""><source src="https://i.imgur.com/Fko6cBm.mp4" type="video/mp4"></source></video></td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <p>Of course, if you comment with English, GitHub Copilot provides a good suggestion. It gives us an adding function as well as some use-cases. But as demonstrated in these experiments, the quality of GitHub Copilot suggestions when given comments in other languages likely is correlated with the overall frequency of these languages in the trainin data. It’s likely that Mandarin is more common than Arabic and Spanish in the training set, so GitHub Copilot performs better with Mandarin comments. Of course, this is a single example (although I observed similar results with other prompts). However, given that it’s well-established that biases in the training data are reflected in the output of any ML algorithm (unless it is appropriately counteracted), I think it is safe to assume that GitHub Copilot will likely be less useful for non-English-speaking users.</p>
 
