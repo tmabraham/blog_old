@@ -18,7 +18,7 @@ On July 1st, I was able to obtain access to GitHub Copilot, thanks to my friend 
 
 In case you haven't logged onto Twitter or Hacker News in the past week, you might not know about [GitHub Copilot](https://copilot.github.com). Developed out of a partnership between OpenAI and Microsoft (GitHub's parent company), it's an AI-based autocomplete tool that helps you to write code faster. The GitHub team has termed it "your AI pair programmer". OpenAI CTO Greg Brockman has explained that it utilizes the currently-unreleased Codex model, which is apparently a successor to the (in)famous GPT-3 language model. It has been trained on billions of lines of code available on GitHub [^1]. 
 
-Based on the demos that GitHub Copilot provided and favorable reviews from beta-tester, I was eager to give it a try, but I was also skeptical if it really was as life-changing as people claimed it was. To my surprise, it was much better than I expected.
+Based on the demos that GitHub Copilot provided and favorable reviews from beta-testers, I was eager to give it a try, but I was also skeptical if it really was as life-changing as people claimed it was. To my surprise, it was much better than I expected.
 
 Here is a demo of GitHub Copilot in action (specifically for an ML-related task):
 
@@ -58,7 +58,7 @@ There are several challenges that I think could preclude widespread use of GitHu
 3. Copyright/licensing issues
 4. Usage of outdated APIs
 
-Let's dive into each of these issue further.
+Let's dive into each of these issues further.
 
 ### Personal information shared by GitHub Copilot
 
@@ -97,13 +97,7 @@ So this confirms that indeed private information was available in the training s
 
 As we mentioned before, GitHub Copilot performs best when you provide it with comments explaining your intent. Therefore, Mazen and I wanted to explore how well GitHub Copilot can perform with comments in various languages. Since I am not the most multi-lingual person, I mainly used Google Translate to translate my English comments to various languages and observe how well it performed. Let's go over an example. Below, I give GitHub Copilot the prompt to "Add two numbers" and see what Python code it suggests:
 
-<style>
-table.center {
-  margin-left: auto; 
-  margin-right: auto;
-}
-</style>
-
+<div style="margin-left:auto !important; margin-right:auto !important;">
 <table class="center">
 <thead>
 <tr>
@@ -122,7 +116,7 @@ table.center {
 </tr>
 </tbody>
 </table>
-
+</div>
 
 Of course, if you comment with English, GitHub Copilot provides a good suggestion. It gives us an adding function as well as some use-cases. But as demonstrated in these experiments, the quality of GitHub Copilot suggestions when given comments in other languages likely is correlated with the overall frequency of these languages in the trainin data. It's likely that Mandarin is more common than Arabic and Spanish in the training set, so GitHub Copilot performs better with Mandarin comments. Of course, this is a single example (although I observed similar results with other prompts). However, given that it's well-established that biases in the training data are reflected in the output of any ML algorithm (unless it is appropriately counteracted), I think it is safe to assume that GitHub Copilot will likely be less useful for non-English-speaking users.
 
