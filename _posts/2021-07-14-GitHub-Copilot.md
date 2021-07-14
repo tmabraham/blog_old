@@ -64,10 +64,10 @@ Let's dive into each of these issues further.
 
 One aspect we discovered was that GitHub Copilot would inadvertantly share information that would be considered personal, such as people's names, phone numbers, emails, etc. This was something Mazen and I explored further. Here are a few examples of this.
 
-In a Python file, simply asking it to create a function to list author names indeed gives names of people that exist:
+In a Python file, simply asking it to create a function to list author names indeed gives the name of a person that exist:
 ![](https://media.discordapp.net/attachments/806360771038019669/860317676390580224/unknown.png)
 
-Mark demonstrated an example when writing a bash script when an actual person's name was suggested in an autocompletion [here](https://www.twitch.tv/marksaroufim/clip/ScrumptiousTangiblePastaDogFace-2bOqEL6P5pYl_ALK)
+Mark demonstrated an example when writing a bash script when an actual person's name was suggested in an autocompletion [here](https://www.twitch.tv/marksaroufim/clip/ScrumptiousTangiblePastaDogFace-2bOqEL6P5pYl_ALK).
 
 
 Interestingly, this method did not work for returning other types of information like phone numbers:
@@ -95,7 +95,7 @@ So this confirms that indeed private information was available in the training s
 
 ### Multi-lingual capabilities of GitHub Copilot
 
-As we mentioned before, GitHub Copilot performs best when you provide it with comments explaining your intent. Therefore, Mazen and I wanted to explore how well GitHub Copilot can perform with comments in various languages. Since I am not the most multi-lingual person, I mainly used Google Translate to translate my English comments to various languages and observe how well it performed. Let's go over an example. Below, I give GitHub Copilot the prompt to "Add two numbers" and see what Python code it suggests:
+As we mentioned before, GitHub Copilot performs best when you provide it with comments explaining your intent. Therefore, Mazen and I wanted to explore how well GitHub Copilot can perform with comments in various languages. I have used Google Translate to translate my English comments to various languages and observe how well it performed. Let's go over an example. Below, I give GitHub Copilot the prompt to "Add two numbers" and see what Python code it suggests:
 <style>
     table {
     text-align: center
