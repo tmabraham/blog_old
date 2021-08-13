@@ -4,7 +4,7 @@ title: About Me
 permalink: /about/
 ---
 
-I am a 17 year old Biomedical Engineering PhD student at UC Davis. Please check out my [website](https://tmabraham.github.io).
+I am a 18 year old Biomedical Engineering PhD candidate at UC Davis. Please check out my [website](https://tmabraham.github.io).
 
 This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
 
