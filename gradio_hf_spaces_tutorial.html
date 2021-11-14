@@ -157,7 +157,7 @@ window.onload = wrap_img;
         
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction"> </a></h1><p>After you train a machine learning model, the next thing to do is showcase it to the world by making a demo. Currently, the easiest way to do so if with Gradio, hosting on HuggingFace Spaces. With the Gradio framework deployed on Spaces, it takes &lt;10 minutes to deploy a model! Let's see how we can easily deploy a model for the world to try out with these platforms. We will use a classic CNN pet classifier as an example.</p>
+<h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction"> </a></h1><p>After you train a machine learning model, the next thing to do is showcase it to the world by making a demo. Currently, the easiest way to do so is with <a href="https://gradio.app">Gradio</a>, hosting on <a href="https://huggingface.co/spaces">HuggingFace Spaces</a>. With the Gradio framework deployed on Spaces, it takes &lt;10 minutes to deploy a model! Let's see how we can easily deploy a model for the world to try out with these platforms. We will use a classic CNN pet classifier as an example.</p>
 <h1 id="Preliminaries:-Training-a-pet-classifier">Preliminaries: Training a pet classifier<a class="anchor-link" href="#Preliminaries:-Training-a-pet-classifier"> </a></h1><p>Before we make a demo, we need to have a model to actually demo! Let's quickly train a simple ResNet50 pet classifier on the Oxford Pets dataset using fastai.</p>
 
 </div>
@@ -291,7 +291,7 @@ Downloading: &#34;https://download.pytorch.org/models/resnet50-0676ba61.pth&#34;
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>And with fastai, it's that simple! If you are interested, check out more about fastai, a simple and flexible PyTorch training framework, over <a href="https://docs.fast.ai">here</a>.</p>
+<p>And with fastai, it's that simple! Learn more about fastai, a simple and flexible PyTorch training framework, over <a href="https://docs.fast.ai">here</a>.</p>
 <h1 id="Using-Gradio">Using Gradio<a class="anchor-link" href="#Using-Gradio"> </a></h1><p>Let's see how to make a demo web app with Gradio. First let's load our model:</p>
 
 </div>
@@ -603,7 +603,7 @@ git commit -m "update .gitattributes so git lfs will track .pkl files"</code></p
 <pre><code>git commit -am "let's deploy to huggingface spaces"
 git push</code></pre>
 <p><strong>Alternatively</strong>, the files can be uploaded via the Spaces UI. When you go to your Space, under "Files and versions", there is an "Add files" button which you can use to upload your app files.</p>
-<p>After a few moments, during which the app is being built, our demo should show up on the HuggingFace Space. <a href="https://huggingface.co/spaces/tmabraham/fastai_pet_classifier">Here</a> is mine.</p>
+<p>After a few moments, during which the app is being built, our demo should show up on the HuggingFace Space. <a href="https://huggingface.co/spaces/tmabraham/fastai_pet_classifier">Here</a> is mine (with all the files described in this post located <a href="https://huggingface.co/spaces/tmabraham/fastai_pet_classifier/tree/main">here</a>).</p>
 <p>That's it! In a few minutes, you trained a pet classifier model with fastai, made a demo interface with Gradio, and hosted it for free on a HuggingFace Space!</p>
 <p>For more information, check the relevant docs. There are so many features of Gradio and Spaces that I haven't mentioned here (like API support<sup id="fnref-2" class="footnote-ref"><a href="#fn-2">2</a></sup>, multiple models per demo, etc.). Additionally, both Gradio and HuggingFace Spaces are in active development that I bet this post will be out-of-date in a few weeks as it will be missing some of the new, amazing features the Gradio and HuggingFace teams add. For this reason, I also recommend following <a href="https://twitter.com/huggingface">HuggingFace</a> and <a href="https://twitter.com/gradio">Gradio</a> on Twitter to hear about the latest updates and newest features.</p>
 <p>I'll end by sharing a quick example prediction by my pet classifier of our kitten!:</p>
@@ -615,7 +615,7 @@ git push</code></pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Footnotes">Footnotes<a class="anchor-link" href="#Footnotes"> </a></h1><p><div class="footnotes"><p id="fn-1">1. One of the developers of Gradio created a simple Python module to easily create Gradio demos for fastai <code>Learner</code> objects. Check it out <a href="https://github.com/aliabd/fastgradio">here</a>. It currently only supports image-to-label interfaces but it could likely be expanded to other tasks fairly easily.<a href="#fnref-1" class="footnote footnotes">↩</a></p></div></p>
-<p><div class="footnotes"><p id="fn-2">2. As of the time of this blog post, the API feature of Gradio doesn't work for demos hosted on HuggingFace Spaces<a href="#fnref-2" class="footnote footnotes">↩</a></p></div></p>
+<p><div class="footnotes"><p id="fn-2">2. As of the time of this blog post, the API feature of Gradio doesn't work for demos hosted on HuggingFace Spaces.<a href="#fnref-2" class="footnote footnotes">↩</a></p></div></p>
 
 </div>
 </div>
