@@ -3,13 +3,13 @@
 {% if site.google_analytics %}
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LRXD97FB1E"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id={{site.google_analytics}}"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-LRXD97FB1E');
+  gtag('config', '{{site.google_analytics}}');
 </script>
-{% endif %}
 
+{% endif %}
