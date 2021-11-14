@@ -239,9 +239,9 @@ table {
 // Handling large charts on mobile devices
 // @media only screen and (max-width: 1200px) {
 //   /* for mobile phone and tablet devices */
-   .output_wrapper{
-     overflow: scroll;
-   }
+  .output_wrapper{
+    overflow: auto;
+  }
 // }
 
 .svg-icon.orange{
@@ -255,4 +255,22 @@ table {
 
 pre code {
   font-size: 15px !important;
+}
+
+// Handle youtube videos, so they dont break on mobile devices
+.youtube-iframe-wrapper {
+  position: relative;
+  padding-bottom: 56.10%;
+  height: 0;
+  overflow: hidden;
+}
+
+.youtube-iframe-wrapper iframe,
+.youtube-iframe-wrapper object,
+.youtube-iframe-wrapper embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
