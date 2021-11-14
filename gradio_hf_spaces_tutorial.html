@@ -344,7 +344,7 @@ Downloading: &#34;https://download.pytorch.org/models/resnet50-0676ba61.pth&#34;
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Finally, let's import Gradio and use it's functionality to make an interface and launch it. Note that if you are doing this from a notebook, the Gradio demo will also show up within the notebook for you to try.</p>
+<p>Finally, let's import Gradio and use it's functionality to make an interface and launch it. Note that if you are doing this from a notebook, the Gradio demo will also show up within the notebook for you to try interactively (here I just show screenshots).</p>
 
 </div>
 </div>
@@ -364,53 +364,26 @@ Downloading: &#34;https://download.pytorch.org/models/resnet50-0676ba61.pth&#34;
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Running on local URL:  http://127.0.0.1:7860/
-Running on public URL: https://58742.gradio.app
-
-This share link will expire in 72 hours. To get longer links, send an email to: support@gradio.app
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-
-<div class="output_html rendered_html output_subarea ">
-
-        <iframe width="900" height="500" src="https://58742.gradio.app" frameborder="0" allowfullscreen=""></iframe>
-        
-</div>
-
-</div>
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>(&lt;Flask &#39;gradio.networking&#39;&gt;,
- &#39;http://127.0.0.1:7860/&#39;,
- &#39;https://58742.gradio.app&#39;)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
     
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+
+<pre><code>Running on local URL:  http://127.0.0.1:7860/
+Running on public URL: https://10290.gradio.app
+
+This share link will expire in 72 hours. To get longer links, send an email to: support@gradio.app</code></pre>
+<p><img src="/blog/images/copied_from_nb/gradio_frame_1.png" alt="" /></p>
+
+<pre><code>(&lt;Flask 'gradio.networking'&gt;, 'http://127.0.0.1:7860/', 'https://10290.gradio.app')</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>That's it! The actual creation of the demo takes one line! <sup id="fnref-1" class="footnote-ref"><a href="#fn-1">1</a></sup></p>
-<p><div class="footnotes"><p id="fn-1">1. One of the developers of Gradio created a simple Python module to easily create Gradio demos for fastai <code>Learner</code> objects. Check it out <a href="https://github.com/aliabd/fastgradio">here</a>. It currently only supports image-to-label interfaces but it could likely be expanded to other tasks fairly easily.<a href="#fnref-1" class="footnote footnotes">↩</a></p></div></p>
 <p>All Gradio interfaces are created by constructing a <code>gradio.Interface()</code> object. As you can see in this example, the <code>Interface</code> object takes in the function that we want to make an interface for (usually an ML model inference function), Gradio input components (the number of input components should match the number of parameters of the provided function), and Gradio output components (the number of output components should match the number of values returned by the provided function). Gradio provides components for various types of input and output types. This includes: images (upload, draw, or webcam), video, audio (upload or microphone), textboxes, dataframes, timeseries, generic files, and more! So you should be able to create a Gradio demo for virtually any type of ML task you can think of!</p>
 <p>After the <code>gradio.Interface()</code> object is defined, the interface is launched with the <code>launch</code> method.</p>
 <h1 id="Optional:-customizing-our-Gradio-app">Optional: customizing our Gradio app<a class="anchor-link" href="#Optional:-customizing-our-Gradio-app"> </a></h1><p>Gradio has lots of features that we can use to customize our app. Let's go over a few of these features and add them to our demo. All of these features are arguments for the instantiation of the <code>Interface</code> class.</p>
@@ -557,49 +530,25 @@ This share link will expire in 72 hours. To get longer links, send an email to: 
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Running on local URL:  http://127.0.0.1:7861/
-Running on public URL: https://47258.gradio.app
-
-This share link will expire in 72 hours. To get longer links, send an email to: support@gradio.app
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-
-<div class="output_html rendered_html output_subarea ">
-
-        <iframe width="900" height="500" src="https://47258.gradio.app" frameborder="0" allowfullscreen=""></iframe>
-        
-</div>
-
-</div>
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>(&lt;Flask &#39;gradio.networking&#39;&gt;,
- &#39;http://127.0.0.1:7861/&#39;,
- &#39;https://47258.gradio.app&#39;)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+<pre><code>Running on local URL:  http://127.0.0.1:7861/
+Running on public URL: https://30513.gradio.app
+
+This share link will expire in 72 hours. To get longer links, send an email to: support@gradio.app</code></pre>
+<p><img src="/blog/images/copied_from_nb/gradio_frame_2.png" alt="" /></p>
+
+<pre><code>(&lt;Flask 'gradio.networking'&gt;,
+ 'http://127.0.0.1:7861/',
+ 'https://30513.gradio.app')</code></pre>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Check the Gradio <a href="https://gradio.app/docs">documentation</a> for more information on how to customize your interface.</p>
@@ -656,9 +605,17 @@ git push</code></pre>
 <p><strong>Alternatively</strong>, the files can be uploaded via the Spaces UI. When you go to your Space, under "Files and versions", there is an "Add files" button which you can use to upload your app files.</p>
 <p>After a few moments, during which the app is being built, our demo should show up on the HuggingFace Space. <a href="https://huggingface.co/spaces/tmabraham/fastai_pet_classifier">Here</a> is mine.</p>
 <p>That's it! In a few minutes, you trained a pet classifier model with fastai, made a demo interface with Gradio, and hosted it for free on a HuggingFace Space!</p>
-<p>For more information, check the relevant docs. There are so many features of Gradio and Spaces that I haven't mentioned here (like API support, multiple models per demo, etc.). Additionally, both Gradio and HuggingFace Spaces are in active development that I bet this post will be out-of-date in a few weeks as it will be missing some of the new, amazing features the Gradio and HuggingFace teams add. For this reason, I also recommend following <a href="https://twitter.com/huggingface">HuggingFace</a> and <a href="https://twitter.com/gradio">Gradio</a> on Twitter to hear about the latest updates and newest features.</p>
+<p>For more information, check the relevant docs. There are so many features of Gradio and Spaces that I haven't mentioned here (like API support<sup id="fnref-2" class="footnote-ref"><a href="#fn-2">2</a></sup>, multiple models per demo, etc.). Additionally, both Gradio and HuggingFace Spaces are in active development that I bet this post will be out-of-date in a few weeks as it will be missing some of the new, amazing features the Gradio and HuggingFace teams add. For this reason, I also recommend following <a href="https://twitter.com/huggingface">HuggingFace</a> and <a href="https://twitter.com/gradio">Gradio</a> on Twitter to hear about the latest updates and newest features.</p>
 <p>I'll end by sharing a quick example prediction by my pet classifier of our kitten!:</p>
 <p><img src="/blog/images/copied_from_nb/gradio_mimi.png" alt="" /></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Footnotes">Footnotes<a class="anchor-link" href="#Footnotes"> </a></h1><p><div class="footnotes"><p id="fn-1">1. One of the developers of Gradio created a simple Python module to easily create Gradio demos for fastai <code>Learner</code> objects. Check it out <a href="https://github.com/aliabd/fastgradio">here</a>. It currently only supports image-to-label interfaces but it could likely be expanded to other tasks fairly easily.<a href="#fnref-1" class="footnote footnotes">↩</a></p></div></p>
+<p><div class="footnotes"><p id="fn-2">2. <a href="#fnref-2" class="footnote footnotes">↩</a></p></div></p>
 
 </div>
 </div>
