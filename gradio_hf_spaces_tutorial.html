@@ -108,7 +108,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      9 min read
+      10 min read
     
 </span></p>
 
@@ -173,7 +173,7 @@ window.onload = wrap_img;
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">fastai.vision.all</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="n">path</span> <span class="o">=</span> <span class="n">untar_data</span><span class="p">(</span><span class="n">URLs</span><span class="o">.</span><span class="n">PETS</span><span class="p">)</span>
 <span class="n">dls</span> <span class="o">=</span> <span class="n">ImageDataLoaders</span><span class="o">.</span><span class="n">from_name_re</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">get_image_files</span><span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;images&#39;</span><span class="p">),</span> <span class="n">pat</span><span class="o">=</span><span class="s1">&#39;(.+)_\d+.jpg&#39;</span><span class="p">,</span> <span class="n">item_tfms</span><span class="o">=</span><span class="n">Resize</span><span class="p">(</span><span class="mi">460</span><span class="p">),</span> <span class="n">batch_tfms</span><span class="o">=</span><span class="n">aug_transforms</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">224</span><span class="p">,</span> <span class="n">min_scale</span><span class="o">=</span><span class="mf">0.75</span><span class="p">))</span>
-<span class="n">learn</span> <span class="o">=</span> <span class="n">cnn_learner</span><span class="p">(</span><span class="n">dls</span><span class="p">,</span> <span class="n">models</span><span class="o">.</span><span class="n">resnet50</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="n">accuracy</span><span class="p">)</span>
+<span class="n">learn</span> <span class="o">=</span> <span class="n">vision_learner</span><span class="p">(</span><span class="n">dls</span><span class="p">,</span> <span class="n">models</span><span class="o">.</span><span class="n">resnet50</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="n">accuracy</span><span class="p">)</span>
 <span class="n">learn</span><span class="o">.</span><span class="n">fine_tune</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">learn</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
 <span class="n">learn</span><span class="o">.</span><span class="n">export</span><span class="p">()</span>
@@ -191,40 +191,21 @@ window.onload = wrap_img;
 
 <div class="output_html rendered_html output_subarea ">
 
-    <div>
-        <style>
-            /* Turns off some styling */
-            progress {
-                /* gets rid of default border in Firefox and Opera. */
-                border: none;
-                /* Needs to be in here for Safari polyfill so background images work as expected. */
-                background-size: auto;
-            }
-            .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
-                background: #F44336;
-            }
-        </style>
-      <progress value="811712512" class="" max="811706944" style="width:300px; height:20px; vertical-align: middle;"></progress>
-      100.00% [811712512/811706944 00:18&lt;00:00]
-    </div>
-    
-</div>
+<style>
+    /* Turns off some styling */
+    progress {
+        /* gets rid of default border in Firefox and Opera. */
+        border: none;
+        /* Needs to be in here for Safari polyfill so background images work as expected. */
+        background-size: auto;
+    }
+    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+        background: #F44336;
+    }
+</style>
 
 </div>
 
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>/opt/conda/envs/spell/lib/python3.9/site-packages/torch/_tensor.py:1051: UserWarning: torch.solve is deprecated in favor of torch.linalg.solveand will be removed in a future PyTorch release.
-torch.linalg.solve has its arguments reversed and does not return the LU factorization.
-To get the LU factorization see torch.lu, which can be used with torch.lu_solve or torch.lu_unpack.
-X = torch.solve(B, A).solution
-should be replaced with
-X = torch.linalg.solve(A, B) (Triggered internally at  /opt/conda/conda-bld/pytorch_1634272204863/work/aten/src/ATen/native/BatchLinearAlgebra.cpp:766.)
-  ret = func(*args, **kwargs)
-Downloading: &#34;https://download.pytorch.org/models/resnet50-0676ba61.pth&#34; to /root/.cache/torch/hub/checkpoints/resnet50-0676ba61.pth
-</pre>
-</div>
 </div>
 
 <div class="output_area">
@@ -244,10 +225,10 @@ Downloading: &#34;https://download.pytorch.org/models/resnet50-0676ba61.pth&#34;
   <tbody>
     <tr>
       <td>0</td>
-      <td>0.952666</td>
-      <td>0.269118</td>
-      <td>0.903924</td>
-      <td>02:20</td>
+      <td>0.973277</td>
+      <td>0.309940</td>
+      <td>0.905954</td>
+      <td>00:32</td>
     </tr>
   </tbody>
 </table>
@@ -259,6 +240,28 @@ Downloading: &#34;https://download.pytorch.org/models/resnet50-0676ba61.pth&#34;
 
 
 <div class="output_html rendered_html output_subarea ">
+
+<style>
+    /* Turns off some styling */
+    progress {
+        /* gets rid of default border in Firefox and Opera. */
+        border: none;
+        /* Needs to be in here for Safari polyfill so background images work as expected. */
+        background-size: auto;
+    }
+    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+        background: #F44336;
+    }
+</style>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: left;">
@@ -272,10 +275,10 @@ Downloading: &#34;https://download.pytorch.org/models/resnet50-0676ba61.pth&#34;
   <tbody>
     <tr>
       <td>0</td>
-      <td>0.427775</td>
-      <td>0.232428</td>
-      <td>0.928958</td>
-      <td>02:51</td>
+      <td>0.420781</td>
+      <td>0.260167</td>
+      <td>0.910690</td>
+      <td>00:34</td>
     </tr>
   </tbody>
 </table>
@@ -592,7 +595,14 @@ scikit-image</code></pre>
 cp requirements.txt fastai_pet_classifier/requirements.txt
 cp export.pkl fastai_pet_classifier/export.pkl
 cp siamese.jpg fastai_pet_classifier/siamese.jpg</code></pre>
-<p>Now before we commit our files, there is something we need to pay attention to. Our model file <code>export.pkl</code> is too big to be handled by <code>git</code>. So instead we need to use git-lfs. You will need to install <a href="https://git-lfs.github.com">git-lfs</a> and then initialize git-lfs in the repository for the app in the following way:</p>
+<p>Now before we commit our files, there is something we need to pay attention to. Our model file <code>export.pkl</code> is too big to be handled by <code>git</code>. So instead we need to use <a href="https://git-lfs.github.com">git-lfs</a> which you first need to install. If you are on Linux, you have several options to install:</p>
+<ol>
+<li>You can use <a href="https://gist.github.com/jph00/361a9b868aa3593f3fd8e930d0221266">this script</a> which <a href="https://twitter.com/jeremyphoward">Jeremy Howard</a> has prepared.</li>
+<li>For Debian and Ubuntu, you can directly use <code>apt-get install git-lfs</code> but as of 5/2/2022, this installs an old version (which isn't a major issue).</li>
+<li>For Debian and Ubuntu, you can follow <a href="https://github.com/git-lfs/git-lfs/wiki/Installation#debian-and-ubuntu">these instructions</a></li>
+</ol>
+<p>For Windows, you can download and run the installer from <a href="https://github.com/git-lfs/git-lfs/releases">here</a>. For MacOS, you can do <code>brew install git-lfs</code>.</p>
+<p>Once you have installed git-lfs, you can then initialize git-lfs in the repository for the app in the following way:</p>
 
 <pre><code>git lfs install
 git lfs track "*.pkl"
@@ -603,10 +613,120 @@ git commit -m "update .gitattributes so git lfs will track .pkl files"</code></p
 <pre><code>git commit -am "let's deploy to huggingface spaces"
 git push</code></pre>
 <p><strong>Alternatively</strong>, the files can be uploaded via the Spaces UI. When you go to your Space, under "Files and versions", there is an "Add files" button which you can use to upload your app files.</p>
-<p>After a few moments, during which the app is being built, our demo should show up on the HuggingFace Space. <a href="https://huggingface.co/spaces/tmabraham/fastai_pet_classifier">Here</a> is mine (with all the files described in this post located <a href="https://huggingface.co/spaces/tmabraham/fastai_pet_classifier/tree/main">here</a>).</p>
-<p>That's it! In a few minutes, you trained a pet classifier model with fastai, made a demo interface with Gradio, and hosted it for free on a HuggingFace Space!</p>
-<p>For more information, check the relevant docs. There are so many features of Gradio and Spaces that I haven't mentioned here (like API support<sup id="fnref-2" class="footnote-ref"><a href="#fn-2">2</a></sup>, multiple models per demo, etc.). Additionally, both Gradio and HuggingFace Spaces are in active development that I bet this post will be out-of-date in a few weeks as it will be missing some of the new, amazing features the Gradio and HuggingFace teams add. For this reason, I also recommend following <a href="https://twitter.com/huggingface">HuggingFace</a> and <a href="https://twitter.com/gradio">Gradio</a> on Twitter to hear about the latest updates and newest features.</p>
-<p>I'll end by sharing a quick example prediction by my pet classifier of our new kitten! Here name is Mimi and, as predicted by my classifier here, she is indeed a Ragdoll kitten!:</p>
+<p>After a few moments, during which the app is being built, our demo should show up on the HuggingFace Space.</p>
+<p>That's it! In a few minutes, you trained a pet classifier model with fastai, made a demo interface with Gradio, and hosted it for free on a HuggingFace Space! You can try it out right below or you can try it out on HuggingFace Spaces <a href="https://huggingface.co/spaces/tmabraham/fastai_pet_classifier">here</a>. All the files described in this post located <a href="https://huggingface.co/spaces/tmabraham/fastai_pet_classifier/tree/main">here</a>). <sup id="fnref-2" class="footnote-ref"><a href="#fn-2">2</a></sup></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+
+<iframe src="https://hf.space/embed/tmabraham/fastai_pet_classifier/+" frameborder="0" height="450" title="Gradio app" class="container p-0 flex-grow space-iframe" allow="accelerometer; ambient-light-sensor; autoplay; battery; camera; document-domain; encrypted-media; fullscreen; geolocation; gyroscope; layout-animations; legacy-image-formats; magnetometer; microphone; midi; oversized-images; payment; picture-in-picture; publickey-credentials-get; sync-xhr; usb; vr ; wake-lock; xr-spatial-tracking" sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-downloads"></iframe>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If you are a more advanced user with expertise in web development, you might be interested to know that there is an API available for any Gradio interface (there isa "view the api" link at the bottom of the interface). For example, <a href="https://hf.space/embed/tmabraham/fastai_pet_classifier/api">here</a> is a link to the API docs for my interface. This provides much more flexibility, like interacting with your model very easily in code. For example, here I can take any image URL and get a pet breed prediction with my model.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">gradio</span> <span class="k">as</span> <span class="nn">gr</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">HTML</span> 
+<span class="n">image_url</span> <span class="o">=</span> <span class="s1">&#39;https://petkeen.com/wp-content/uploads/2021/05/grey-cat.jpeg&#39;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">gr</span><span class="o">.</span><span class="n">processing_utils</span><span class="o">.</span><span class="n">encode_url_or_file_to_base64</span><span class="p">(</span><span class="n">image_url</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://hf.space/embed/tmabraham/fastai_pet_classifier/+/api/predict/&#39;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;data&quot;</span><span class="p">:[</span><span class="n">data</span><span class="p">]})</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The breed of this pet is a &#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">image_url</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">256</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Original JSON returned from the request: &#39;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The breed of this pet is a  British Shorthair
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<img src="https://petkeen.com/wp-content/uploads/2021/05/grey-cat.jpeg" width="256" height="256" />
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Original JSON returned from the request:  {&#39;data&#39;: [{&#39;label&#39;: &#39;British_Shorthair&#39;, &#39;confidences&#39;: [{&#39;label&#39;: &#39;British_Shorthair&#39;, &#39;confidence&#39;: 0.9997965693473816}, {&#39;label&#39;: &#39;Russian_Blue&#39;, &#39;confidence&#39;: 0.00019805884221568704}, {&#39;label&#39;: &#39;Sphynx&#39;, &#39;confidence&#39;: 2.037774265772896e-06}]}], &#39;flag_index&#39;: None, &#39;updated_state&#39;: None, &#39;durations&#39;: [0.172652006149292], &#39;avg_durations&#39;: [0.16854349304648006]}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Some examples of using the API in custom websites is provided <a href="https://fastai.github.io/tinypets/">here</a> (put together by Jeremy Howard and members of the fast.ai community).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For more information, check the relevant docs and forums:</p>
+<ul>
+<li><a href="https://gradio.app/docs/">Gradio documentation</a></li>
+<li><a href="https://huggingface.co/docs/hub/spaces">HuggingFace Spaces documentation</a></li>
+<li><a href="https://gradio.app/guides/">Gradio Guides</a></li>
+<li><a href="https://discuss.huggingface.co/">HuggingFace Forums (for Spaces and Gradio Q&amp;A)</a></li>
+</ul>
+<p>There are so many features of Gradio and Spaces that I haven't mentioned here (like multiple models per demo, etc.). Additionally, both Gradio and HuggingFace Spaces are in active development and new, amazing features afe always being added by tje Gradio and HuggingFace teams! For this reason, I also recommend following <a href="https://twitter.com/huggingface">HuggingFace</a> and <a href="https://twitter.com/gradio">Gradio</a> on Twitter to hear about the latest updates and newest features.</p>
+<p>I'll end by sharing a quick example prediction by my pet classifier of our new kitten! Her name is Mimi and, as predicted by my classifier here, she is indeed a Ragdoll kitten!:</p>
 <p><img src="/blog/images/copied_from_nb/gradio_mimi.png" alt="" /></p>
 
 </div>
@@ -614,9 +734,9 @@ git push</code></pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Acknowledgements">Acknowledgements<a class="anchor-link" href="#Acknowledgements"> </a></h1><p>Thanks to Zach Mueller, Ahsen Khaliq, and Abhishek Thakur for reviewing my blog post.</p>
+<h1 id="Acknowledgements">Acknowledgements<a class="anchor-link" href="#Acknowledgements"> </a></h1><p>Thanks to Zach Mueller, Ahsen Khaliq, Abhishek Thakur, and Jeremy Howard for reviewing my blog post.</p>
 <h1 id="Footnotes">Footnotes<a class="anchor-link" href="#Footnotes"> </a></h1><p><div class="footnotes"><p id="fn-1">1. One of the developers of Gradio created a simple Python module to easily create Gradio demos for fastai <code>Learner</code> objects. Check it out <a href="https://github.com/aliabd/fastgradio">here</a>. It currently only supports image-to-label interfaces but it could likely be expanded to other tasks fairly easily.<a href="#fnref-1" class="footnote footnotes">↩</a></p></div></p>
-<p><div class="footnotes"><p id="fn-2">2. As of the time of this blog post, the API feature of Gradio doesn't work for demos hosted on HuggingFace Spaces.<a href="#fnref-2" class="footnote footnotes">↩</a></p></div></p>
+<p><div class="footnotes"><p id="fn-2">2. Recently, HuggingFace <a href="https://github.com/huggingface/huggingface_hub/pull/678">added</a> direct support for pushing and loading fastai models to the HuggingFace Hub with the <code>push_to_hub_fastai</code> and <code>from_pretrained_fastai</code> functions, respectively. This can make creating Spaces much easier, since you can just load it in the Space and not have to add it to the repository with <code>git-lfs</code>. See an example of this over <a href="https://huggingface.co/spaces/espejelomar/cat_or_dog_fastai/blob/main/app.py">here</a>.<a href="#fnref-2" class="footnote footnotes">↩</a></p></div></p>
 
 </div>
 </div>
