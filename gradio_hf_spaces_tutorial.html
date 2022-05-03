@@ -595,13 +595,7 @@ scikit-image</code></pre>
 cp requirements.txt fastai_pet_classifier/requirements.txt
 cp export.pkl fastai_pet_classifier/export.pkl
 cp siamese.jpg fastai_pet_classifier/siamese.jpg</code></pre>
-<p>Now before we commit our files, there is something we need to pay attention to. Our model file <code>export.pkl</code> is too big to be handled by <code>git</code>. So instead we need to use <a href="https://git-lfs.github.com">git-lfs</a> which you first need to install. If you are on Linux, you have several options to install:</p>
-<ol>
-<li>You can use <a href="https://gist.github.com/jph00/361a9b868aa3593f3fd8e930d0221266">this script</a> which <a href="https://twitter.com/jeremyphoward">Jeremy Howard</a> has prepared.</li>
-<li>For Debian and Ubuntu, you can directly use <code>apt-get install git-lfs</code> but as of 5/2/2022, this installs an old version (which isn't a major issue).</li>
-<li>For Debian and Ubuntu, you can follow <a href="https://github.com/git-lfs/git-lfs/wiki/Installation#debian-and-ubuntu">these instructions</a></li>
-</ol>
-<p>For Windows, you can download and run the installer from <a href="https://github.com/git-lfs/git-lfs/releases">here</a>. For MacOS, you can do <code>brew install git-lfs</code>.</p>
+<p>Now before we commit our files, there is something we need to pay attention to. Our model file <code>export.pkl</code> is too big to be handled by <code>git</code>. So instead we need to use <a href="https://git-lfs.github.com">git-lfs</a> which you first need to install. If you are on Debian or Ubuntu, you can directly use <code>apt-get install git-lfs</code> (which installs an older version but that's not really an issue). For other Linux distros, you can use <a href="https://gist.github.com/jph00/361a9b868aa3593f3fd8e930d0221266">this script</a> which <a href="https://twitter.com/jeremyphoward">Jeremy Howard</a> has prepared. For Windows, you can download and run the installer from <a href="https://github.com/git-lfs/git-lfs/releases">here</a>. For MacOS, you can do <code>brew install git-lfs</code>.</p>
 <p>Once you have installed git-lfs, you can then initialize git-lfs in the repository for the app in the following way:</p>
 
 <pre><code>git lfs install
@@ -645,7 +639,7 @@ git push</code></pre>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>If you are a more advanced user with expertise in web development, you might be interested to know that there is an API available for any Gradio interface (there isa "view the api" link at the bottom of the interface). For example, <a href="https://hf.space/embed/tmabraham/fastai_pet_classifier/api">here</a> is a link to the API docs for my interface. This provides much more flexibility, like interacting with your model very easily in code. For example, here I can take any image URL and get a pet breed prediction with my model.</p>
+<p>If you are a more advanced user with expertise in web development, you might be interested to know that there is an API available for any Gradio interface (there is a "view the api" link at the bottom of the interface). For example, <a href="https://hf.space/embed/tmabraham/fastai_pet_classifier/api">here</a> is a link to the API docs for my interface. This provides much more flexibility, like interacting with your model very easily in code. For example, here I can take any image URL and get a pet breed prediction with my model.</p>
 
 </div>
 </div>
@@ -666,9 +660,9 @@ git push</code></pre>
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://hf.space/embed/tmabraham/fastai_pet_classifier/+/api/predict/&#39;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;data&quot;</span><span class="p">:[</span><span class="n">data</span><span class="p">]})</span>
 
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The breed of this pet is a &#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)))</span>
-<span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">image_url</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">256</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Original JSON returned from the request: &#39;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The breed of this pet is a </span><span class="si">{</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)))</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">image_url</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">475</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Original JSON returned from the request: &#39;</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">(),</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -681,7 +675,7 @@ git push</code></pre>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>The breed of this pet is a  British Shorthair
+<pre>The breed of this pet is a British Shorthair:
 </pre>
 </div>
 </div>
@@ -690,7 +684,7 @@ git push</code></pre>
 
 
 <div class="output_html rendered_html output_subarea ">
-<img src="https://petkeen.com/wp-content/uploads/2021/05/grey-cat.jpeg" width="256" height="256" />
+<img src="https://petkeen.com/wp-content/uploads/2021/05/grey-cat.jpeg" width="256" height="475" />
 </div>
 
 </div>
@@ -698,7 +692,35 @@ git push</code></pre>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Original JSON returned from the request:  {&#39;data&#39;: [{&#39;label&#39;: &#39;British_Shorthair&#39;, &#39;confidences&#39;: [{&#39;label&#39;: &#39;British_Shorthair&#39;, &#39;confidence&#39;: 0.9997965693473816}, {&#39;label&#39;: &#39;Russian_Blue&#39;, &#39;confidence&#39;: 0.00019805884221568704}, {&#39;label&#39;: &#39;Sphynx&#39;, &#39;confidence&#39;: 2.037774265772896e-06}]}], &#39;flag_index&#39;: None, &#39;updated_state&#39;: None, &#39;durations&#39;: [0.172652006149292], &#39;avg_durations&#39;: [0.16854349304648006]}
+<pre>Original JSON returned from the request:  {
+  &#34;data&#34;: [
+    {
+      &#34;label&#34;: &#34;British_Shorthair&#34;,
+      &#34;confidences&#34;: [
+        {
+          &#34;label&#34;: &#34;British_Shorthair&#34;,
+          &#34;confidence&#34;: 0.9997965693473816
+        },
+        {
+          &#34;label&#34;: &#34;Russian_Blue&#34;,
+          &#34;confidence&#34;: 0.00019805884221568704
+        },
+        {
+          &#34;label&#34;: &#34;Sphynx&#34;,
+          &#34;confidence&#34;: 2.037774265772896e-06
+        }
+      ]
+    }
+  ],
+  &#34;flag_index&#34;: null,
+  &#34;updated_state&#34;: null,
+  &#34;durations&#34;: [
+    0.0925149917602539
+  ],
+  &#34;avg_durations&#34;: [
+    0.14498271260942733
+  ]
+}
 </pre>
 </div>
 </div>
